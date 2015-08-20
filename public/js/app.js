@@ -1,0 +1,1 @@
+angular.module('twApartments', ['ngRoute', 'appRoutes', 'MainCtrl', 'ApartmentCtrl', 'ApartmentService']);

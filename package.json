@@ -1,0 +1,14 @@
+{
+  "name": "twbooks",
+  "main": "server.js",
+  "dependencies": {
+    "express" : "~4.5.1",
+    "mongoose" : "~3.8.0",
+    "body-parser" : "~1.4.2",
+    "method-override" : "~2.0.2",
+    "bower": "1.4.x"
+  },
+  "scripts": {
+    "postinstall": "./node_modules/bower/bin/bower install"
+  }
+}

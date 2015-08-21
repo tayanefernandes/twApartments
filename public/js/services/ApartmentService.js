@@ -6,17 +6,15 @@ angular.module('ApartmentService', []).factory('Apartment', ['$http', function($
             return $http.get('/api/apartments');
         },
 
-
-        // these will work when more API routes are defined on the Node side of things
-        // call to POST and create a new nerd
-        create : function(nerdData) {
-            return $http.post('/api/apartments', nerdData);
+        // call to POST and create a new apartment
+        create : function(apartmentData) {
+            return $http.post('/api/apartments', apartmentData);
         },
 
-        // call to DELETE a nerd
+        // call to DELETE a apartment
         delete : function(id) {
             return $http.delete('/api/apartments/' + id);
         }
-    }       
+    }      
 
 }]);

@@ -1,5 +1,34 @@
-angular.module('ApartmentCtrl', []).controller('ApartmentController', function($scope) {
+angular.module('ApartmentCtrl', [])
 
-    $scope.tagline = 'Controller';
+	.controller('ApartmentController', function($scope, $http, Apartment) {
+
+    	$scope.tagline = 'Estou no controller do apartment';
+
+    	$scope.formData = {};
+
+
+        Apartment.get()
+            .success(function(data) {
+                $scope.apartments = data;
+            });
+
+
+        $scope.createApartment = function() {
+            if (!$.isEmptyObject($scope.formData)) {
+            	Apartment.create($scope.formData)
+                    .success(function(data) {
+                        $scope.formData = {}; 
+                        $scope.apartments = data; 
+                    });
+            }
+        };
+
+        // delete a todo after checking it
+        $scope.deleteApartment = function(id) {
+            Apartment.delete(id)
+                .success(function(data) {
+                    $scope.apartments = data;
+                });
+        };
 
 });

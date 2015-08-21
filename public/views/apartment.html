@@ -3,4 +3,17 @@
     <h1>Apartments</h1>
 
     <p>{{ tagline }}</p>
+
+    {{apartments.length}}
+
+
+    <div id="apartmen-form">
+		<form>
+			<div class="form-group">
+				<input type="text" placeholder="AP03" ng-model="formData.name">
+			</div>
+
+			<button type="submit" ng-click="createTodo()">Create</button>
+		</form>		
+	</div>
 </div>

@@ -1,5 +1,5 @@
 // grab the nerd model we just created
-var Nerd = require('./models/apartment');
+var Apartment = require('./models/apartment');
 
 module.exports = function(app) {
 
@@ -7,22 +7,47 @@ module.exports = function(app) {
     // handle things like api calls
     // authentication routes
 
-    // sample api route
-    app.get('/api/apartments', function(req, res) {
-        // use mongoose to get all apartments in the database
+    function getApartments(res){
         Apartment.find(function(err, apartments) {
+            if (err)
+                res.send(err)
 
-            // if there is an error retrieving, send the error. 
-                            // nothing after res.send(err) will execute
+            res.json(apartments);
+        });
+    };
+
+
+    app.get('/api/apartments', function(req, res) {
+        getApartments(res);
+    });
+
+
+    app.delete('/api/apartments/:apartment_id', function(req, res) {
+        Apartment.remove({
+            _id : req.params.apartment_id
+        }, function(err, apartment) {
             if (err)
                 res.send(err);
 
-            res.json(apartments); // return all apartments in JSON format
+            getApartments(res);
         });
     });
 
-    // route to handle creating goes here (app.post)
-    // route to handle delete goes here (app.delete)
+
+    app.post('/api/apartments', function(req, res) {
+
+        // information comes from AJAX request from Angular
+        Apartment.create({
+            name : req.body.name,
+            done : false
+        }, function(err, todo) {
+            if (err)
+                res.send(err);
+
+            getApartments(res);
+        });
+
+    });
 
     // frontend routes =========================================================
     // route to handle all angular requests
@@ -31,3 +56,4 @@ module.exports = function(app) {
     });
 
 };
+

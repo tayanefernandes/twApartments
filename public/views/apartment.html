@@ -4,16 +4,49 @@
 
     <p>{{ tagline }}</p>
 
-    {{apartments.length}}
+    Number of Apartments: {{apartments.length}}
+
+    <!-- LOOP OVER THE TODOS IN $scope.todos -->
+	<table>
+		<tr><th>Name</th><th>Address</th></tr>
+		<tr ng-repeat="apt in apartments">
+			<td>
+				<input type="checkbox" ng-click="deleteApartment(apt._id)"> {{ apt.name }}
+			</td>
+			<td>
+				{{ apt.address }}
+			</td>
+		</tr>
+	</table>
 
 
-    <div id="apartmen-form">
+
+    <div id="apartment-form">
 		<form>
 			<div class="form-group">
-				<input type="text" placeholder="AP03" ng-model="formData.name">
+				<label>Name</label>
+				<input type="text" placeholder="AP03" ng-model="formData.name"><br/>
+				<label>Address</label>
+				<input type="text" ng-model="formData.address"><br/>
+				<label>Information about Electric Energy</label>
+				<input type="text" ng-model="formData.energyInfo"><br/>
+				<label>Information about Internet Access</label>
+				<input type="text" ng-model="formData.internetInfo"><br/>
+				<label>Rent Amount</label>
+				<input type="text" ng-model="formData.rentAmount"><br/>
+				<label>Condominium</label>
+				<input type="text" ng-model="formData.condominium"><br/>
+				<label>Main Bedrooms</label>
+				<input type="text" ng-model="formData.mainBedrooms"><br/>
+				<label>Contract Start Date</label>
+				<input type="text" ng-model="formData.contractStartDate"><br/>
+				<label>Allowed to return after</label>
+				<input type="text" ng-model="formData.allowedToReturnAfter"><br/>
+				<label>Observations</label>
+				<input type="text" ng-model="formData.observations">
 			</div>
 
-			<button type="submit" ng-click="createTodo()">Create</button>
+			<button type="submit" ng-click="createApartment()">Create</button>
 		</form>		
 	</div>
 </div>

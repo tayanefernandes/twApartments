@@ -39,7 +39,15 @@ module.exports = function(app) {
         // information comes from AJAX request from Angular
         Apartment.create({
             name : req.body.name,
-            done : false
+            address: req.body.address,
+            energyInfo: req.body.energyInfo,
+            internetInfo: req.body.internetInfo,
+            rentAmount: req.body.rentAmount,
+            condominium: req.body.condominium,
+            mainBedrooms: req.body.mainBedrooms,
+            contractStartDate: req.body.contractStartDate,
+            allowedToReturnAfter: req.body.allowedToReturnAfter,
+            observations: req.body.observations
         }, function(err, todo) {
             if (err)
                 res.send(err);

@@ -14,13 +14,12 @@ angular.module('ApartmentCtrl', [])
 
 
         $scope.createApartment = function() {
-            if (!$.isEmptyObject($scope.formData)) {
-            	Apartment.create($scope.formData)
-                    .success(function(data) {
-                        $scope.formData = {}; 
-                        $scope.apartments = data; 
-                    });
-            }
+            console.log('oiiiie');
+            Apartment.create($scope.formData)
+                .success(function(data) {
+                    $scope.formData = {}; 
+                    $scope.apartments = data; 
+                });
         };
 
         // delete a todo after checking it

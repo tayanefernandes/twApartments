@@ -1,0 +1,43 @@
+a {
+	color: #7A3BDA;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.container {
+	padding: 2em;
+}
+
+.form-group {
+	padding: 1em;
+	border: 1px solid #D9D9D9;
+	width: 30%;
+
+	div {
+		padding-bottom: 1em;
+
+		label {
+			display: block;
+		}
+
+		input[type="text"], input[type="number"], input[type="date"], textarea {
+			width: 90%;
+		}
+
+	}
+
+}
+
+table {
+	border-collapse:collapse;
+	margin-bottom: 2em;
+
+	td, th {
+		border:1px solid #BEBEBE;
+		padding: 0.5em;
+	}
+
+	th {
+		background: #DADADA;
+	}
+}

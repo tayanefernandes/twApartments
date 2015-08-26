@@ -14,7 +14,6 @@ angular.module('ApartmentCtrl', [])
 
 
         $scope.createApartment = function() {
-            console.log('oiiiie');
             Apartment.create($scope.formData)
                 .success(function(data) {
                     $scope.formData = {}; 

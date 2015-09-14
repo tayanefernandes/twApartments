@@ -1,1 +1,8 @@
-angular.module('twApartments', ['ngRoute', 'appRoutes', 'MainCtrl', 'ApartmentCtrl', 'ApartmentService']);
+angular.module('twApartments', 
+	['ngRoute',
+	 'appRoutes', 
+	 'ApartmentCtrl',
+	 'ApartmentListCtrl',
+	 'MaintenanceCtrl',
+	 'MaintenanceListCtrl',
+	 'ApartmentService']);

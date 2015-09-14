@@ -5,14 +5,25 @@
 
         // home page
         .when('/', {
-            templateUrl: 'views/home.html',
-            controller: 'MainController'
+            templateUrl: 'views/apartmentList.html',
+            controller: 'ApartmentListController'
         })
 
-        // apartments page that will use the ApartmentController
-        .when('/apartments', {
+        .when('/apartmentsAdmin', {
             templateUrl: 'views/apartment.html',
             controller: 'ApartmentController'
+        })
+        .when('/apartments', {
+            templateUrl: 'views/apartmentList.html',
+            controller: 'ApartmentListController'
+        })
+        .when('/maintenance/:apartmentId', {
+            templateUrl: 'views/maintenance.html',
+            controller: 'MaintenanceController'
+        })
+        .when('/admin', {
+            templateUrl: 'views/maintenanceList.html',
+            controller: 'MaintenanceListController'
         });
 
     $locationProvider.html5Mode(true);

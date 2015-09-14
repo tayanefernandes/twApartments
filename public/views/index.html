@@ -15,26 +15,17 @@
     <script src="libs/angular-route/angular-route.min.js"></script>
 
     <!-- ANGULAR CUSTOM -->
-    <script src="js/controllers/MainCtrl.js"></script>
     <script src="js/controllers/ApartmentCtrl.js"></script>
+    <script src="js/controllers/ApartmentListCtrl.js"></script>
+    <script src="js/controllers/MaintenanceCtrl.js"></script>
+    <script src="js/controllers/MaintenanceListCtrl.js"></script>
     <script src="js/services/ApartmentService.js"></script>
     <script src="js/appRoutes.js"></script>
     <script src="js/app.js"></script>
 </head>
-<body ng-app="twApartments" ng-controller="ApartmentController">
+<body ng-app="twApartments">
 <div class="container">
 
-    <!-- HEADER -->
-    <nav>
-        <div>
-            <a href="/">Home</a>
-        </div>
-
-        <!-- LINK TO OUR PAGES. ANGULAR HANDLES THE ROUTING HERE -->
-        <ul>
-            <li><a href="/apartments">Apartments</a></li>
-        </ul>
-    </nav>
 
     <!-- ANGULAR DYNAMIC CONTENT -->
     <div ng-view>

@@ -4,6 +4,7 @@ angular.module('ApartmentListCtrl', [])
 
         Apartment.get()
             .success(function(data) {
+            	console.log(data);
                 $scope.apartments = data;
             });
 

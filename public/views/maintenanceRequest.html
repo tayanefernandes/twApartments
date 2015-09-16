@@ -1,0 +1,24 @@
+<div>
+    <h1>Maintenance</h1>
+
+        <div id="maintenance-form">
+		<form>
+			<div>
+				<label>Your Name</label>
+				<input type="text" ng-model="formData.requesterName">
+			</div>	
+			<div>
+				<label>What is the issue?</label>
+				<textarea ng-model="formData.issueDescription"></textarea>
+			</div>
+			<div>
+				<label>Is your problem urgent?</label>
+				 <input type="radio" ng-model="formData.isUrgent" value="true" />Yes
+                 <input type="radio" ng-model="formData.isUrgent" value="false" />No
+			</div>
+
+			<button type="submit" ng-click="createMaintenanceRequest()">Send</button>
+		</form>	
+	</div>
+
+</div>

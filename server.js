@@ -12,7 +12,7 @@ var methodOverride = require('method-override');
 var db = require('./config/db');
 
 // set our port
-var port = process.env.PORT || 8080; 
+var port = process.env.PORT || 1337; 
 
 // connect to our mongoDB database 
 // (uncomment after you enter in your own credentials in config/db.js)
@@ -44,7 +44,8 @@ app.use(express.static(__dirname + '/public'));
 app.use('/libs',express.static(__dirname + '/libs'));
 
 // routes ==================================================
-require('./app/routes')(app); // configure our routes
+require('./app/apartmentRoutes')(app); // configure our routes
+require('./app/maintenanceRequestRoutes')(app);
 
 // start app ===============================================
 // startup our app at http://localhost:8080

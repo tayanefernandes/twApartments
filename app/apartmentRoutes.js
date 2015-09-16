@@ -3,10 +3,6 @@ var Apartment = require('./models/apartment');
 
 module.exports = function(app) {
 
-    // server routes ===========================================================
-    // handle things like api calls
-    // authentication routes
-
     function getApartments(res){
         Apartment.find(function(err, apartments) {
             if (err)
@@ -36,7 +32,6 @@ module.exports = function(app) {
 
     app.post('/api/apartments', function(req, res) {
 
-        // information comes from AJAX request from Angular
         Apartment.create({
             name : req.body.name,
             address: req.body.address,
@@ -56,12 +51,5 @@ module.exports = function(app) {
         });
 
     });
-
-    // frontend routes =========================================================
-    // route to handle all angular requests
-    app.get('*', function(req, res) {
-        res.sendfile('./public/views/index.html'); // load our public/index.html file
-    });
-
 };
 

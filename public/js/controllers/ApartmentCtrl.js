@@ -2,8 +2,6 @@ angular.module('ApartmentCtrl', [])
 
 	.controller('ApartmentController', function($scope, $http, Apartment) {
 
-    	$scope.tagline = 'Estou no controller do apartment';
-
     	$scope.formData = {};
 
 

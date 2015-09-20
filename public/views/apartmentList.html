@@ -1,12 +1,11 @@
-<div>
-    <h1>Apartments List</h1>
-
-     <ul>
-    <li ng-repeat="apt in apartments">
-    <span>{{ apt.name }}</span>
-    <span>{{ apt.address }}</span>
-    <a href="/maintenance/{{apt._id}}">Ask Maintenance</a>
-    </li>
+<div class="apartment-list">
+    <ul>
+	    <li ng-repeat="apt in apartments">
+		    <div>
+		    	<h3>{{ apt.name }}</h3>
+		    	<span>{{ apt.address }}</span>	
+		    </div>	   
+		    <a href="/maintenance/{{apt._id}}">Ask Maintenance</a>
+	    </li>
     </ul>
-
 </div>

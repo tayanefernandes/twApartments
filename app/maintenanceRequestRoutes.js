@@ -45,6 +45,18 @@ module.exports = function(app) {
 
     });
 
+    app.get('/api/maintenancerequestslist', function(req, res) {
+        MaintenanceRequest.find()
+        .populate('_apartment')
+        .exec(function(err, maintenancerequests){
+            if (err){
+                res.send(err);
+            }
+
+            res.json(maintenancerequests);
+         })
+    });
+
     app.get('*', function(req, res) {
         res.sendfile('./public/views/index.html'); // load our public/index.html file
     });

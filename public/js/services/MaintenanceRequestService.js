@@ -11,6 +11,10 @@ angular.module('MaintenanceRequestService', []).factory('MaintenanceRequest', ['
 
         delete : function(id) {
             return $http.delete('/api/maintenancerequests/' + id);
+        },
+
+        listByApartment : function(apartmentId) {
+            return $http.get('/api/maintenancerequestslist/');
         }
     }      
 

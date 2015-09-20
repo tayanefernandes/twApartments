@@ -23,6 +23,9 @@
         .when('/admin/apartments', {
             templateUrl: 'views/apartment.html',
             controller: 'ApartmentController'
+        }).when('/admin/maintenance/edit/:maintenanceRequestId', {
+            templateUrl: 'views/maintenanceRequestEdit.html',
+            controller: 'MaintenanceController'
         });
 
     $locationProvider.html5Mode(true);

@@ -1,9 +1,19 @@
 <div>
-    <h1>Maintenance Request List</h1>
+    <h1>Maintenance Requests</h1>
+
+    <div class="filter">
+      <label for="search">Search:</label>
+      <input id="search" ng-model="query">
+    </div>
 
      <ul>
-    	<li ng-repeat="request in maintenanceList">
-    		<span>{{ request.requesterName }}</span>
+    	<li ng-repeat="maintenance in maintenanceList | filter:query">
+    		<span>{{ maintenance._apartment.address }}</span>
+    		-
+    		<span>{{ maintenance.issueDescription }}</span>
+    		<span>{{ maintenance.comments.length }} comments</span>
+
+    		<a href="admin/maintenance/edit/{{maintenance._id}}">Edit</a>
     	</li>
     </ul>
 </div>

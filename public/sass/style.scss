@@ -1,12 +1,99 @@
+@import "colors";
+
+$bold: 600;
+$super-bold: 700;
+
+body {
+	font-family: 'Open Sans', sans-serif;
+	background: $dark-gray;
+}
+
+h3 {
+	margin: 0;
+}
+
 a {
-	color: #7A3BDA;
-	text-decoration: underline;
 	cursor: pointer;
 }
 
 .container {
-	padding: 2em;
+	width: 62%;
+	margin: 0 auto;
+	background: $light-gray;
+	overflow: hidden;
+
+	header {
+		background: $gray;
+		height: 6em;
+
+		h1 {
+			margin: 0;
+			color: white;
+			line-height: 4em;
+			font-size: 1.4em;
+			padding-left: 10%;
+			font-weight: $bold;
+		}
+	}
+
+	.content {
+		padding: 2em;
+		overflow: hidden;
+	}
 }
+
+.apartment-list {
+	ul {
+		margin: 0;
+		padding: 0;
+		margin-top: 2em;
+		width: 100%;
+		display: -webkit-flex;
+    	display: flex;
+
+		li {
+			height: 185px;
+			list-style-type: none;
+			background: $blue;
+			border-radius: 4px;
+			margin-left: 3%;
+			margin-right: 3%;
+			-webkit-flex: 1 1;
+    		flex: 1;
+    		box-shadow: 3px 3px 10px 1px #DFDFDF;
+
+    		div {
+    			color: white;
+    			padding: 1.3em;
+    			font-size: 0.7em;
+    			height: 64.5%;
+
+    			h3 {
+    				font-weight: $bold;
+    				font-size: 1.5em;
+    				padding-bottom: 0.5em;
+    			}
+    		}
+
+			a {
+				display: block;
+				width: 100%;
+				height: 20%;
+				background-color: white;
+				border-radius:0px 0px 4px 4px;
+				font-size: 0.8em;
+				text-transform: uppercase;
+				color: $dark-blue;
+				font-weight: $super-bold;
+				text-decoration: none;
+				text-align: center;
+				line-height: 2.6em;
+    		}
+		}
+	}
+}
+
+
 
 .form-group {
 	padding: 1em;

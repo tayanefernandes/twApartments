@@ -1,23 +1,28 @@
 <div>
-    <h1>Maintenance</h1>
-
-        <div id="maintenance-form">
+    <div class="form-container">
+    	<h2>ASK FOR MAINTENANCE</h2>
 		<form>
 			<div>
-				<label>Your Name</label>
-				<input type="text" ng-model="formData.requesterName">
+				<div class="blue-highlight">{{ apartmentRelated.name }}: {{ apartmentRelated.address }}</div>
+			</div>
+			<div>
+				<label>Type your Name</label>
+				<input type="text" ng-model="formData.requesterName" required>
 			</div>	
 			<div>
-				<label>What is the issue?</label>
-				<textarea ng-model="formData.issueDescription"></textarea>
+				<label>Describe the problem you are facing at the apartment</label>
+				<textarea ng-model="formData.issueDescription" required></textarea>
 			</div>
 			<div>
-				<label>Is your problem urgent?</label>
-				 <input type="radio" ng-model="formData.isUrgent" value="true" />Yes
-                 <input type="radio" ng-model="formData.isUrgent" value="false" />No
+				<label>Does the problem need an urgent maintenance?</label>
+				 <input id="true" type="radio" ng-model="formData.isUrgent" value="true" ng-required/>
+				 <label class="label-radio" for="true">YES</label>
+                 <input id="false" type="radio" ng-model="formData.isUrgent" value="false" ng-required/>
+                 <label class="label-radio" for="false" >NO</label>
 			</div>
 
-			<button type="submit" ng-click="createMaintenanceRequest()">Send</button>
+			<button class="blue-button" type="submit" ng-click="createMaintenanceRequest()">SEND</button>
+			<a href="/">Or, go back to apartment list</a>
 		</form>	
 	</div>
 

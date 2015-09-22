@@ -6,6 +6,11 @@ angular.module('ApartmentService', []).factory('Apartment', ['$http', function($
             return $http.get('/api/apartments');
         },
 
+         // call to get all apartments
+        getApartmentById : function(id) {
+            return $http.get('/api/apartment/' + id);
+        },
+
         // call to POST and create a new apartment
         create : function(apartmentData) {
             return $http.post('/api/apartments', apartmentData);

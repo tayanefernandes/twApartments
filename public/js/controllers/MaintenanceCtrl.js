@@ -11,4 +11,9 @@ angular.module('MaintenanceCtrl', [])
                 });
         };
 
+        MaintenanceRequest.getApartmentById($routeParams.apartmentId)
+            .success(function(data){
+                $scope.apartmentRelated = data;
+            });
+
     });

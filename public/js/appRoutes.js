@@ -8,10 +8,6 @@
             templateUrl: 'views/apartmentList.html',
             controller: 'ApartmentListController'
         })
-        .when('/apartments', {
-            templateUrl: 'views/apartmentList.html',
-            controller: 'ApartmentListController'
-        })
         .when('/maintenance/:apartmentId', {
             templateUrl: 'views/maintenanceRequest.html',
             controller: 'MaintenanceController'
@@ -23,7 +19,8 @@
         .when('/admin/apartments', {
             templateUrl: 'views/apartment.html',
             controller: 'ApartmentController'
-        }).when('/admin/maintenance/edit/:maintenanceRequestId', {
+        })
+        .when('/admin/maintenance/edit/:maintenanceRequestId', {
             templateUrl: 'views/maintenanceRequestEdit.html',
             controller: 'MaintenanceController'
         });

@@ -1,6 +1,10 @@
-angular.module('MaintenanceRequestService', []).factory('MaintenanceRequest', ['$http', function($http) {
+angular.module('MaintenanceRequestService', []).factory('MaintenanceRequest', ['$http', 'Apartment', function($http, Apartment) {
 
     return {
+        getApartmentById : function(apartmentId) {
+            return Apartment.getApartmentById(apartmentId);
+        },
+
         get : function() {
             return $http.get('/api/maintenancerequests');
         },

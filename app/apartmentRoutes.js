@@ -29,9 +29,18 @@ module.exports = function(app) {
         });
     });
 
+    app.get('/api/apartment/:apartment_id', function(req, res) {
+        Apartment.findOne({
+            _id : req.params.apartment_id
+        }, function(err, apartment) {
+            if (err)
+                res.send(err);
+
+            res.json(apartment);
+        });
+    });
 
     app.post('/api/apartments', function(req, res) {
-
         Apartment.create({
             name : req.body.name,
             address: req.body.address,
@@ -43,7 +52,7 @@ module.exports = function(app) {
             contractStartDate: req.body.contractStartDate,
             allowedToReturnAfter: req.body.allowedToReturnAfter,
             observations: req.body.observations
-        }, function(err, todo) {
+        }, function(err, apartments) {
             if (err)
                 res.send(err);
 

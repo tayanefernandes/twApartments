@@ -1,27 +1,27 @@
 <div>
     <div class="form-container">
     	<h2>ASK FOR MAINTENANCE</h2>
-		<form>
+		<form name="maintenanceForm" novalidate>
 			<div>
 				<div class="blue-highlight">{{ apartmentRelated.name }}: {{ apartmentRelated.address }}</div>
 			</div>
-			<div>
+			<div ng-class="{ 'has-error': maintenanceForm.name.$touched && maintenanceForm.name.$invalid }">
 				<label>Type your Name</label>
-				<input type="text" ng-model="formData.requesterName" required>
+				<input type="text" ng-model="formData.requesterName" name="name" required/>
 			</div>	
-			<div>
+			<div ng-class="{ 'has-error': maintenanceForm.description.$touched && maintenanceForm.description.$invalid }">
 				<label>Describe the problem you are facing at the apartment</label>
-				<textarea ng-model="formData.issueDescription" required></textarea>
+				<textarea ng-model="formData.issueDescription" name="description" required></textarea>
 			</div>
-			<div>
+			<div ng-class="{ 'has-error': maintenanceForm.urgency.$touched && maintenanceForm.urgency.$invalid }">
 				<label>Does the problem need an urgent maintenance?</label>
-				 <input id="true" type="radio" ng-model="formData.isUrgent" value="true" ng-required/>
+				 <input id="true" type="radio" name="urgency" ng-model="formData.isUrgent" value="true" required/>
 				 <label class="label-radio" for="true">YES</label>
-                 <input id="false" type="radio" ng-model="formData.isUrgent" value="false" ng-required/>
+                 <input id="false" type="radio" name="urgency" ng-model="formData.isUrgent" value="false" checked="checked" required/>
                  <label class="label-radio" for="false" >NO</label>
 			</div>
 
-			<button class="blue-button" type="submit" ng-click="createMaintenanceRequest()">SEND</button>
+			<button  ng-disabled="maintenanceForm.$invalid" class="blue-button" type="submit" ng-click="createMaintenanceRequest()">SEND</button>
 			<a href="/">Or, go back to apartment list</a>
 		</form>	
 	</div>

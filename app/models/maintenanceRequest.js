@@ -5,9 +5,9 @@ var Schema = mongoose.Schema;
 
 
 var MaintenanceRequestSchema = new Schema({
-	requesterName : String, 
-    issueDescription: String,
-    isUrgent: Boolean,
+	requesterName : {type: String, required: true}, 
+    issueDescription: {type: String, required: true},
+    isUrgent: {type: Boolean, required: true},
     comments: [{
     	 body: String,
     	 date: { type: Date, default: Date.now }

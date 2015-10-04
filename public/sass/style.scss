@@ -1,6 +1,7 @@
 @import "variables";
 @import "apartments";
 @import "forms";
+@import "dialogs";
 
 
 //general
@@ -52,7 +53,33 @@ a {
 		overflow: hidden;
 		font-size: 0.8em;
 	}
+
 }
+
+.blue-button {
+	background: $blue;
+	border-radius: 3px;
+	color: white;
+	border: none;
+	box-shadow: 3px 3px 9px 2px #DFDFDF;
+	margin-right: 2em;
+	padding: 0.5em 1.7em;
+
+	&:active {
+		background: $dark-blue;
+	}
+
+	&:hover {
+		background: $dark-blue;
+	}
+
+	&:disabled {
+		background: $border-gray;
+	}
+
+}
+
+
 
 
 

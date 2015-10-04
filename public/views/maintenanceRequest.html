@@ -5,23 +5,23 @@
 			<div>
 				<div class="blue-highlight">{{ apartmentRelated.name }}: {{ apartmentRelated.address }}</div>
 			</div>
-			<div ng-class="{ 'has-error': maintenanceForm.name.$touched && maintenanceForm.name.$invalid }">
+			<div ng-class="{ 'has-error': hasError(maintenanceForm.name)}">
 				<label>Type your Name</label>
 				<input type="text" ng-model="formData.requesterName" name="name" required/>
 			</div>	
-			<div ng-class="{ 'has-error': maintenanceForm.description.$touched && maintenanceForm.description.$invalid }">
+			<div ng-class="{ 'has-error': hasError(maintenanceForm.description) }">
 				<label>Describe the problem you are facing at the apartment</label>
 				<textarea ng-model="formData.issueDescription" name="description" required></textarea>
 			</div>
-			<div ng-class="{ 'has-error': maintenanceForm.urgency.$touched && maintenanceForm.urgency.$invalid }">
-				<label>Does the problem need an urgent maintenance?</label>
+			<div ng-class="{ 'has-error': hasError(maintenanceForm.urgency) }" class="div-radio">
+				 <label>Does the problem need an urgent maintenance?</label>
 				 <input id="true" type="radio" name="urgency" ng-model="formData.isUrgent" value="true" required/>
 				 <label class="label-radio" for="true">YES</label>
                  <input id="false" type="radio" name="urgency" ng-model="formData.isUrgent" value="false" checked="checked" required/>
                  <label class="label-radio" for="false" >NO</label>
 			</div>
 
-			<button  ng-disabled="maintenanceForm.$invalid" class="blue-button" type="submit" ng-click="createMaintenanceRequest()">SEND</button>
+			<button class="blue-button" type="submit" ng-click="submitForm()">SEND</button>
 			<a href="/">Or, go back to apartment list</a>
 		</form>	
 	</div>

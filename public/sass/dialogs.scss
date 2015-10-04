@@ -1,0 +1,48 @@
+@import "variables";
+
+.ngdialog-content {
+	width: 40% !important;
+}
+
+.dialog-content {
+	font-family: 'Open Sans', sans-serif;
+	padding: 1em;
+	font-size: 0.9em;
+
+	i {
+		float: left;
+		width: 20%;
+
+		&.fa-times {
+			color: $light-red;
+		}
+
+		&.fa-check {
+			color: $green;
+		}
+	}
+
+
+
+	.dialog-text {
+		width: 80%;
+		float: left;
+
+		h3 {
+			font-weight: normal;
+		}
+
+		p {
+			font-size: 0.8em;
+			line-height: 1.4em;
+			color: #7B7B7B;
+			padding-bottom: 1em;
+		}
+	}
+
+	.blue-button {
+		display: block;
+		width: 20%;
+		margin: 0 auto;
+	}
+}

@@ -14,28 +14,6 @@
 		width: 70%;
 	}
 
-	.blue-button {
-		background: $blue;
-		border-radius: 3px;
-		color: white;
-		border: none;
-		box-shadow: 3px 3px 9px 2px #DFDFDF;
-		margin-right: 2em;
-		padding: 0.5em 1.7em;
-
-		&:active {
-			background: $dark-blue;
-		}
-
-		&:hover {
-			background: $dark-blue;
-		}
-
-		&:disabled {
-			background: $border-gray;
-		}
-
-	}
 
 	form div {
 		padding-bottom: 2em;
@@ -84,36 +62,74 @@
 			&:focus { outline: 0; }
 		}
 
-		&.has-error {
+		&.has-error:not(.div-radio) {
+			position: relative;
+
 			input, textarea{
 				border: $light-red solid 2px;	
 			}
 
-			label:after {
+			&:after {
 				content: "Invalid Field";
 				text-align: center;
 				color: white;
-			   	width: 120px;
-			   	height: 20px;
 			   	background: $light-red;
 			   	position: absolute;
 			   	-moz-border-radius: 3px;
 			   	-webkit-border-radius: 3px;
 			   	border-radius: 3px;
+			   	top: -2px;
+    			right: 26%;
+    			padding: 3px 6px;
+    			font-size: 0.8em;
 			}
 
-			label:before {
-			   content:"";
-			   position: absolute;
-			   right: 100%;
-			   top: 26px;
-			   width: 0;
-			   height: 0;
-			   border-top: 13px solid transparent;
-			   border-right: 26px solid red;
-			   border-bottom: 13px solid transparent;
+			&:before {
+				content: "";
+    			position: absolute;
+    			right: 29.8%;
+    			top: 17px;
+    			width: 0;
+			    height: 0;
+			    border-top: 7px solid $light-red;
+			    border-right: 7px solid transparent;
+			    border-left: 7px solid transparent;
+			}
+		}
+
+		&.has-error.div-radio {
+			position: relative;
+
+			input {
+				border: $light-red solid 2px;	
 			}
 
+			label:first-child:after {
+				content: "Invalid Field";
+			    text-align: center;
+			    color: white;
+			    background: #FC5356;
+			    position: absolute;
+			    -moz-border-radius: 3px;
+			    -webkit-border-radius: 3px;
+			    border-radius: 3px;
+			    top: -1px;
+			    padding: 3px 6px;
+			    font-size: 0.8em;
+			    margin-left: 15px;
+			}
+
+			label:first-child:before {
+			    content: "";
+			    position: absolute;
+			    top: 3px;
+			    width: 0;
+			    height: 0;
+			    border-top: 6px solid transparent;
+			    border-right: 6px solid $light-red;
+			    border-bottom: 6px solid transparent;
+			    right: 56%;
+			}
 		}
 	}
 }

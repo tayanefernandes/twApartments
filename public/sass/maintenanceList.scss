@@ -1,0 +1,22 @@
+.content-list {
+	tr {
+		border: solid $border-gray 2px;
+		background: white;
+
+		td {
+			border: none;
+			height: 2em;
+			padding: 0.8em;
+
+			.blue-button {
+				padding: 0.2em 1.5em;
+				margin: 0 1em;
+			}
+		}
+	}
+
+}
+
+.fa-exclamation-circle {
+	color: #EFAD2D;
+}

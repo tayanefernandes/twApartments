@@ -1,19 +1,47 @@
-<div>
-    <h1>Maintenance Requests</h1>
+<div class="content-list">
+    <h2>MAINTENANCE REQUESTS</h2>
 
     <div class="filter">
       <label for="search">Search:</label>
       <input id="search" ng-model="query">
     </div>
 
-     <ul>
-    	<li ng-repeat="maintenance in maintenanceList | filter:query">
-    		<span>{{ maintenance._apartment.address }}</span>
-    		-
-    		<span>{{ maintenance.issueDescription }}</span>
-    		<span>{{ maintenance.comments.length }} comments</span>
+    <h3>TO DO</h3>
+    <table>
+      <tr ng-repeat="maintenance in maintenanceList | filter:toDoFilter | filter:query">
+        <td><i class="fa fa-exclamation-circle fa-2x" ng-show="maintenance.isUrgent"></i></td>
+        <td>{{ maintenance._apartment.address }}</td>
+    		<td>{{ maintenance.issueDescription }}</td>
+    		<td><b>{{ maintenance.comments.length }} comments</b></td>
 
-    		<a href="admin/maintenance/edit/{{maintenance._id}}">Edit</a>
-    	</li>
-    </ul>
+    		<td><a class="blue-button" href="admin/maintenance/edit/{{maintenance._id}}">Edit</a></td>
+        <td><a ng-click="deleteMaintenanceRequest(maintenance._id)"> delete </a></td>
+      </tr>
+    </table>
+
+    <h3>DOING</h3>
+    <table>
+      <tr ng-repeat="maintenance in maintenanceList | filter:doingFilter | filter:query">
+        <td><i class="fa fa-exclamation-circle fa-2x" ng-show="maintenance.isUrgent"></i></td>
+        <td>{{ maintenance._apartment.address }}</td>
+        <td>{{ maintenance.issueDescription }}</td>
+        <td><b>{{ maintenance.comments.length }} comments</b></td>
+
+        <td><a class="blue-button" href="admin/maintenance/edit/{{maintenance._id}}">Edit</a></td>
+        <td><a ng-click="deleteMaintenanceRequest(maintenance._id)"> delete </a></td>
+      </tr>
+    </table>
+
+    <h3>DONE</h3>
+    <table>
+      <tr ng-repeat="maintenance in maintenanceList | filter:doneFilter | filter:query">
+        <td><i class="fa fa-exclamation-circle fa-2x" ng-show="maintenance.isUrgent"></i></td>
+        <td>{{ maintenance._apartment.address }}</td>
+        <td>{{ maintenance.issueDescription }}</td>
+        <td><b>{{ maintenance.comments.length }} comments</b></td>
+
+        <td><a class="blue-button" href="admin/maintenance/edit/{{maintenance._id}}">Edit</a></td>
+        <td><a ng-click="deleteMaintenanceRequest(maintenance._id)"> delete </a></td>
+      </tr>
+    </table>
 </div>

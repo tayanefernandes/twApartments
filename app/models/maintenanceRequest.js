@@ -12,6 +12,7 @@ var MaintenanceRequestSchema = new Schema({
     	 body: String,
     	 date: { type: Date, default: Date.now }
      }],
+    isSolved: {type: Boolean, default: false},
     _apartment : { type: Schema.Types.ObjectId, ref: 'Apartment' }
 
 });

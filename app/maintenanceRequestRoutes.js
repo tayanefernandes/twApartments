@@ -1,4 +1,5 @@
 var MaintenanceRequest = require('./models/maintenanceRequest');
+var sendgrid = require("sendgrid")(process.env.SENDGRID_KEY);
 
 module.exports = function(app) {
 
@@ -39,11 +40,26 @@ module.exports = function(app) {
             if (err){
                 res.send(err);
             }
-
+            sendEmail(req.body.apartmentRelated, req.body.requesterName, req.body.issueDescription, verifyUrgency(req.body.isUrgent));
             getMaintenanceRequests(res);
         });
 
     });
+
+    var verifyUrgency = function(isUrgent) {
+        return isUrgent? '[URGENT]':'';
+    }
+
+    var sendEmail = function(apartment, name, description, isUrgent) {
+        var email = new sendgrid.Email();
+        email.addTo('tfernand@thoughtworks.com');
+        email.setFrom('twapartments@gmail.com');
+        
+        email.setSubject(isUrgent + ' Maintenance Request - Apartment ' + apartment.name);
+        email.setHtml('<p> Requester: '+ name +'</p> <p> Message: '+ description + '</p>');
+         
+        sendgrid.send(email);
+    };
 
     app.get('/api/maintenancerequestslist', function(req, res) {
         MaintenanceRequest.find()

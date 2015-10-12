@@ -23,7 +23,8 @@ angular.module('MaintenanceCtrl', ['ngDialog'])
         };
 
 
-        var createMaintenanceRequest = function(formData) {      
+        var createMaintenanceRequest = function(formData) { 
+            formData.apartmentRelated =  $scope.apartmentRelated;   
             MaintenanceRequest.create(formData)
                 .success(function(data){
                     showDialogSucess();

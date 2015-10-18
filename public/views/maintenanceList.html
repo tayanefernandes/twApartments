@@ -2,13 +2,15 @@
     <h2>MAINTENANCE REQUESTS</h2>
 
     <div class="filter">
-      <label for="search">Search:</label>
-      <input id="search" ng-model="query">
+      <select ng-model="filterByApartment">
+          <option value="all" selected>All</option>
+          <option ng-repeat="apartment in apartments" value="{{apartment._id}}">{{apartment.name}} : {{apartment.address}} </option>
+      </select>
     </div>
 
     <h3>TO DO</h3>
     <table>
-      <tr ng-repeat="maintenance in maintenanceList | filter:toDoFilter | filter:query">
+      <tr ng-repeat="maintenance in maintenanceList | filter:toDoFilter | filter:filterMaintenance">
         <td><i class="fa fa-exclamation-circle fa-2x" ng-show="maintenance.isUrgent"></i></td>
         <td>{{ maintenance._apartment.address }}</td>
     		<td>{{ maintenance.issueDescription }}</td>

@@ -1,10 +1,17 @@
 angular.module('MaintenanceListCtrl',[])
-	.controller('MaintenanceListController',function($scope, $http, MaintenanceRequest){
+	.controller('MaintenanceListController',function($scope, $http, MaintenanceRequest, Apartment){
 		
-		MaintenanceRequest.listByApartment()
+		MaintenanceRequest.listWithApartment()
             .success(function(data) {
                 $scope.maintenanceList = data;
+
+                $scope.apartments = {};
+			    angular.forEach($scope.maintenanceList, function(maintenance){
+		            $scope.apartments[maintenance._apartment._id] = maintenance._apartment;
+			    });
             });
+
+        $scope.filterByApartment = 'all';
 
         $scope.toDoFilter = function (maintenance) {
         	console.log(maintenance.isSolved);
@@ -17,6 +24,10 @@ angular.module('MaintenanceListCtrl',[])
 
 		$scope.doneFilter = function (maintenance) {
 		    return maintenance.isSolved;
+		};
+
+		$scope.filterMaintenance = function(maintenance) {
+			return $scope.filterByApartment === 'all' ? true : $scope.filterByApartment === maintenance._apartment._id;
 		};
 
 		// delete a todo after checking it

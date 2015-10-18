@@ -1,3 +1,4 @@
+@import "variables";
 .content-list {
 	tr {
 		border: solid $border-gray 2px;
@@ -15,6 +16,24 @@
 		}
 	}
 
+}
+
+select {
+	width: 100%;
+	padding: 0.7em 1em;
+	border-radius: 3px;
+	border: solid $border-gray 2px;
+	-webkit-appearance: none;
+  	-moz-appearance: none;
+  	-o-appearance: none;
+  	appearance: none;
+  	margin-bottom: 2em;
+  	background-color: white;
+  	background-image: url('../images/arrow.png');
+  	background-repeat: no-repeat;
+  	background-position: 99% center;
+  	background-size: 20px 20px;
+  	outline: 0;
 }
 
 .fa-exclamation-circle {

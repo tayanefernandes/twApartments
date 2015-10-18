@@ -17,7 +17,7 @@ angular.module('MaintenanceRequestService', []).factory('MaintenanceRequest', ['
             return $http.delete('/api/maintenancerequests/' + id);
         },
 
-        listByApartment : function(apartmentId) {
+        listWithApartment : function(apartmentId) {
             return $http.get('/api/maintenancerequestslist/');
         }
     }      

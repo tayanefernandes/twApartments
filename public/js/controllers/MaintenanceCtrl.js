@@ -1,11 +1,13 @@
 angular.module('MaintenanceCtrl', ['ngDialog'])
 
-	.controller('MaintenanceController', function($scope, $http, $routeParams, MaintenanceRequest, ngDialog) {
+	.controller('MaintenanceController', function($scope, $http, $routeParams, $rootScope, MaintenanceRequest, ngDialog) {
 		$scope.formData = {};
+        $rootScope.loading = true;
 
         MaintenanceRequest.getApartmentById($routeParams.apartmentId)
             .success(function(data){
                 $scope.apartmentRelated = data;
+                $rootScope.loading = false;
             });
 
         $scope.submitForm = function(){

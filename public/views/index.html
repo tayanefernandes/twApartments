@@ -35,10 +35,16 @@
         <h1>THOUGHTWORKS APARTMENTS</h1>
     </header>
 
+
     <div class="content" ng-view>
-
     </div>
-
+</div>
+<div class="overlay-div" ng-show="loading">
+</div>
+<div class="spinner" ng-show="loading">
+    <div class="square1"></div>
+    <div class="square2"></div>
+    <div class="square3"></div>
 </div>
 </body>
 </html>

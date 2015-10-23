@@ -1,6 +1,6 @@
 angular.module('MaintenanceListCtrl',[])
-	.controller('MaintenanceListController',function($scope, $http, MaintenanceRequest, Apartment){
-		
+	.controller('MaintenanceListController',function($scope, $http, $rootScope, MaintenanceRequest, Apartment){
+		$rootScope.loading = true;
 		MaintenanceRequest.listWithApartment()
             .success(function(data) {
                 $scope.maintenanceList = data;
@@ -9,6 +9,7 @@ angular.module('MaintenanceListCtrl',[])
 			    angular.forEach($scope.maintenanceList, function(maintenance){
 		            $scope.apartments[maintenance._apartment._id] = maintenance._apartment;
 			    });
+			    $rootScope.loading = false;
             });
 
         $scope.filterByApartment = 'all';

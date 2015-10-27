@@ -17,6 +17,19 @@ module.exports = function(app) {
         getMaintenanceRequests(res);
     });
 
+    app.get('/api/maintenancerequests/:maintenance_id', function(req, res) {
+         MaintenanceRequest.findOne({
+            _id : req.params.maintenance_id
+         })
+        .populate('_apartment')
+        .exec(function(err, maintenance){
+            if (err){
+                res.send(err);
+            }
+            res.json(maintenance);
+         })
+    });
+
     app.delete('/api/maintenancerequests/:maintenance_id', function(req, res) {
         MaintenanceRequest.remove({
             _id : req.params.maintenance_id

@@ -5,6 +5,10 @@ angular.module('MaintenanceRequestService', []).factory('MaintenanceRequest', ['
             return Apartment.getApartmentById(apartmentId);
         },
 
+        getMaintenanceById : function(id) {
+            return $http.get('/api/maintenancerequests/' + id);
+        },
+
         get : function() {
             return $http.get('/api/maintenancerequests');
         },

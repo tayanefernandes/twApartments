@@ -21,8 +21,8 @@
             controller: 'ApartmentController'
         })
         .when('/admin/maintenance/edit/:maintenanceRequestId', {
-            templateUrl: 'views/maintenanceRequestEdit.html',
-            controller: 'MaintenanceController'
+            templateUrl: 'views/maintenanceEdit.html',
+            controller: 'MaintenanceEditController'
         });
 
     $locationProvider.html5Mode(true);

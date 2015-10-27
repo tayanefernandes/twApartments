@@ -10,6 +10,7 @@ var MaintenanceRequestSchema = new Schema({
     isUrgent: {type: Boolean, required: true},
     comments: [{
     	 body: String,
+    	 author: String,
     	 date: { type: Date, default: Date.now }
      }],
     isSolved: {type: Boolean, default: false},

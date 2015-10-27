@@ -4,6 +4,7 @@ angular.module('twApartments',
 	 'ApartmentCtrl',
 	 'ApartmentListCtrl',
 	 'MaintenanceCtrl',
+	 'MaintenanceEditCtrl',
 	 'MaintenanceListCtrl',
 	 'ApartmentService',
 	 'MaintenanceRequestService']);

@@ -1,0 +1,43 @@
+<div>
+   <div class="form-container">
+    	<h2>EDIT MAINTENANCE</h2>
+		<form name="maintenanceForm" novalidate>
+			<div>
+				<div class="blue-highlight">
+					{{ maintenanceRequest._apartment.name }}: {{ maintenanceRequest._apartment.address }}
+				</div>
+			</div>
+			<div ng-class="{ 'has-error': hasError(maintenanceForm.name)}">
+				<label>Guest Name</label>
+				<input type="text" ng-model="maintenanceRequest.requesterName" name="name" required/>
+			</div>	
+			<div ng-class="{ 'has-error': hasError(maintenanceForm.description) }">
+				<label>Description</label>
+				<textarea ng-model="maintenanceRequest.issueDescription" name="description" required></textarea>
+			</div>
+			<div ng-show="maintenanceRequest.isUrgent"><i class="fa fa-exclamation-circle fa-2x"></i>Maintenance signalized as urgent</div>
+			<div>
+				<label>Comments</label>
+				<ul>
+					<li ng-repeat="comment in maintenanceRequest.comments">
+						<p>{{comment.body}}</p>
+						<div>
+							<span class="author">{{comment.author}}</span>
+							<span class="date">{{comment.date}}</span>
+						</div>
+					</li>
+				<ul>
+				<a ng-click="openCommentDialog()">+ add new comment</a>
+			</div>
+			<div ng-class="{ 'has-error': hasError(maintenanceForm.isSolved) }" class="div-radio">
+				 <label>Was this solved?</label>
+				 <input id="true" type="radio" name="solved" ng-model="formData.isSolved" value="true" required/>
+				 <label class="label-radio" for="true">YES</label>
+                 <input id="false" type="radio" name="solved" ng-model="formData.isSolved" value="false" checked="checked" required/>
+                 <label class="label-radio" for="false" >NO</label>
+			</div>
+			<button class="blue-button" type="submit" ng-click="submitForm()">SEND</button>
+			<a href="/">Or, go back to apartment list</a>
+		</form>	
+	</div>
+</div>

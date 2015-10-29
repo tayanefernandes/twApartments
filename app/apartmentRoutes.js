@@ -1,5 +1,6 @@
 // grab the nerd model we just created
 var Apartment = require('./models/apartment');
+var Maintenance = require('./models/maintenanceRequest');
 
 module.exports = function(app) {
 
@@ -19,12 +20,10 @@ module.exports = function(app) {
 
 
     app.delete('/api/apartments/:apartment_id', function(req, res) {
-        Apartment.remove({
-            _id : req.params.apartment_id
-        }, function(err, apartment) {
-            if (err)
-                res.send(err);
-
+        Maintenance.remove({
+            _apartment: req.params.apartment_id
+        }, function(err, maintenance) {
+            Apartment.find({ _id : req.params.apartment_id }).remove().exec();
             getApartments(res);
         });
     });

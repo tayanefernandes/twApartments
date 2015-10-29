@@ -15,7 +15,6 @@ var MaintenanceRequestSchema = new Schema({
      }],
     isSolved: {type: Boolean, default: false},
     _apartment : { type: Schema.Types.ObjectId, ref: 'Apartment' }
-
 });
 
 module.exports = mongoose.model('MaintenanceRequest', MaintenanceRequestSchema);

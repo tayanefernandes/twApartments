@@ -1,13 +1,14 @@
 <div class="dialog-content">
 	<form name="commentForm">
 		<div>
-			<label for="name">Your Name</label>
-			<input id="name" type="text" required/>
+			<label for="author">Your Name</label>
+			<input id="author" type="text" ng-model="commentData.author" required/>
 		</div>
 		<div>
 			<label for="message">Message</label>
-			<textarea id="message" required></textarea>
+			<textarea id="message" ng-model="commentData.message" required></textarea>
 		</div>
+		<input type="submit" class="blue-button" value="OK" ng-click="addComment()"/>
 	</form>
-	<input type="button" class="blue-button" value="OK" ng-click="submitComment()"/>
+	
 </div>

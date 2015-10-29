@@ -1,6 +1,7 @@
 angular.module('ApartmentCtrl', [])
 
 	.controller('ApartmentController', function($scope, $http, $rootScope, Apartment) {
+        $rootScope.isAdmin = true;
     	$rootScope.loading = true;
         $scope.formData = {};
 
@@ -18,10 +19,11 @@ angular.module('ApartmentCtrl', [])
                 .success(function(data) {
                     $scope.formData = {}; 
                     $scope.apartments = data; 
+                    $rootScope.loading = false;
                 });
         };
 
-        // delete a todo after checking it
+        // delete a apartment after checking it
         $scope.deleteApartment = function(id) {
             $rootScope.loading = true;
             Apartment.delete(id)

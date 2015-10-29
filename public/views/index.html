@@ -33,9 +33,9 @@
 <body ng-app="twApartments">
 <div class="container">
     <header>
-        <h1>THOUGHTWORKS APARTMENTS</h1>
+        <h1>THOUGHTWORKS APARTMENTS <span ng-if="isAdmin">- ADMIN</span></h1>
     </header>
-
+    <a ng-if="isAdmin" href="/admin/apartments">Apartments Manager</a>
 
     <div class="content" ng-view>
     </div>

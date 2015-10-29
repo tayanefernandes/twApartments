@@ -1,6 +1,7 @@
 angular.module('ApartmentListCtrl', [])
 
 	.controller('ApartmentListController', function($scope, $http, $rootScope, Apartment) {
+		$rootScope.isAdmin = false;
 		$rootScope.loading = true;
 
         Apartment.get()

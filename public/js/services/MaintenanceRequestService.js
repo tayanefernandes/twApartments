@@ -1,28 +1,32 @@
 angular.module('MaintenanceRequestService', []).factory('MaintenanceRequest', ['$http', 'Apartment', function($http, Apartment) {
 
     return {
-        getApartmentById : function(apartmentId) {
+        getApartmentById: function(apartmentId) {
             return Apartment.getApartmentById(apartmentId);
         },
 
-        getMaintenanceById : function(id) {
+        getMaintenanceById: function(id) {
             return $http.get('/api/maintenancerequests/' + id);
         },
 
-        get : function() {
+        get: function() {
             return $http.get('/api/maintenancerequests');
         },
 
-        create : function(maintenanceData) {
+        create: function(maintenanceData) {
             return $http.post('/api/maintenancerequests', maintenanceData);
         },
 
-        delete : function(id) {
+        delete: function(id) {
             return $http.delete('/api/maintenancerequests/' + id);
         },
 
-        listWithApartment : function(apartmentId) {
+        listWithApartment: function(apartmentId) {
             return $http.get('/api/maintenancerequestslist/');
+        },
+
+        addComment: function(commentData, maintenanceId) {
+            return $http.put('/api/maintenancerequests/comments/' + maintenanceId, commentData);
         }
     }      
 

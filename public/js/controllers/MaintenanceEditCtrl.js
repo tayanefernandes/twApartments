@@ -2,22 +2,33 @@ angular.module('MaintenanceEditCtrl', ['ngDialog'])
 
 	.controller('MaintenanceEditController', function($scope, $http, $routeParams, $rootScope, MaintenanceRequest, ngDialog) {
 		$scope.formData = {};
+        $rootScope.isAdmin = true;
         $rootScope.loading = true;
-        console.log($routeParams.maintenanceRequestId);
 
         MaintenanceRequest.getMaintenanceById($routeParams.maintenanceRequestId)
             .success(function(data){
                 $scope.maintenanceRequest = data;
-                console.log('aqui', data);
                 $rootScope.loading = false;
             });
 
         $scope.openCommentDialog = function() {
-            console.log('Hello');
             ngDialog.open({
                     template: '../views/comment_template.html',
                     className: 'ngdialog-theme-default',
-                    showClose: false
+                    showClose: false,
+                    scope: $scope,
+                    controller: 'MaintenanceEditController'
+                });
+        };
+
+        $scope.addComment = function(){
+            console.log('controller===> ', $scope.commentData);
+            MaintenanceRequest.addComment($scope.commentData, $routeParams.maintenanceRequestId)
+                .success(function(data){
+                    alert('ok');
+                    closeThisDialog();
+                }).error(function(){
+                    alert('erro');
                 });
         };
 

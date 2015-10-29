@@ -56,7 +56,27 @@ module.exports = function(app) {
             sendEmail(req.body.apartmentRelated, req.body.requesterName, req.body.issueDescription, verifyUrgency(req.body.isUrgent));
             getMaintenanceRequests(res);
         });
+    });
 
+    app.put('/api/maintenancerequests/comments/:maintenance_id', function(req, res) {
+        MaintenanceRequest.findByIdAndUpdate(req.params.maintenance_id,
+            {$push: {
+                "comments": {
+                            body: req.body.message,
+                            author: req.body.author
+                        }
+                    }
+            },
+            {  
+                safe: true,
+                upsert: true
+            },
+           function(err, maintenance) {
+             if(err){
+                res.send(err);
+             }
+             res.json(maintenance);
+          });
     });
 
     var verifyUrgency = function(isUrgent) {

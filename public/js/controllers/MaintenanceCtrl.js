@@ -1,6 +1,4 @@
-angular.module('MaintenanceCtrl', ['ngDialog'])
-
-	.controller('MaintenanceController', function($scope, $http, $routeParams, $rootScope, MaintenanceRequest, ngDialog) {
+angular.module('twApartments').controller('MaintenanceController', function($scope, $http, $routeParams, $rootScope, MaintenanceRequest, ngDialog) {
 		$scope.formData = {};
         $rootScope.loading = true;
 

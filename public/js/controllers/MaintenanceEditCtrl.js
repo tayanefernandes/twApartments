@@ -1,6 +1,4 @@
-angular.module('MaintenanceEditCtrl', ['ngDialog'])
-
-	.controller('MaintenanceEditController', function($scope, $http, $routeParams, $rootScope, MaintenanceRequest, ngDialog) {
+angular.module('twApartments').controller('MaintenanceEditController', function($scope, $http, $routeParams, $rootScope, MaintenanceRequest, ngDialog) {
 		$scope.formData = {};
         $rootScope.isAdmin = true;
         $rootScope.loading = true;
@@ -13,21 +11,21 @@ angular.module('MaintenanceEditCtrl', ['ngDialog'])
 
         $scope.openCommentDialog = function() {
             ngDialog.open({
-                    template: '../views/comment_template.html',
-                    className: 'ngdialog-theme-default',
-                    showClose: false,
-                    scope: $scope,
-                    controller: 'MaintenanceEditController'
-                });
+                template: '../views/comment_template.html',
+                className: 'ngdialog-theme-default',
+                showClose: false,
+                scope: $scope
+            });
         };
 
-        $scope.addComment = function(){
-            console.log('controller===> ', $scope.commentData);
-            MaintenanceRequest.addComment($scope.commentData, $routeParams.maintenanceRequestId)
+
+        $scope.addComment = function(commentData){
+            MaintenanceRequest.addComment(commentData, $routeParams.maintenanceRequestId)
                 .success(function(data){
-                    alert('ok');
-                    closeThisDialog();
+                    $scope.maintenanceRequest.comments = data.comments;
+                    ngDialog.closeAll();
                 }).error(function(){
+                    //To do error alert
                     alert('erro');
                 });
         };

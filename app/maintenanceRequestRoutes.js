@@ -62,10 +62,10 @@ module.exports = function(app) {
         MaintenanceRequest.findByIdAndUpdate(req.params.maintenance_id,
             {$push: {
                 "comments": {
-                            body: req.body.message,
-                            author: req.body.author
-                        }
+                        body: req.body.message,
+                        author: req.body.author
                     }
+                }
             },
             {  
                 safe: true,

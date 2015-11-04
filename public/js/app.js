@@ -1,10 +1,1 @@
-angular.module('twApartments', 
-	['ngRoute',
-	 'appRoutes', 
-	 'ApartmentCtrl',
-	 'ApartmentListCtrl',
-	 'MaintenanceCtrl',
-	 'MaintenanceEditCtrl',
-	 'MaintenanceListCtrl',
-	 'ApartmentService',
-	 'MaintenanceRequestService']);
+angular.module('twApartments', ['ngRoute', 'ngDialog']);

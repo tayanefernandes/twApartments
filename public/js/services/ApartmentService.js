@@ -1,4 +1,4 @@
-angular.module('ApartmentService', []).factory('Apartment', ['$http', function($http) {
+angular.module('twApartments').factory('Apartment', ['$http', function($http) {
 
     return {
         // call to get all apartments

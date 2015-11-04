@@ -1,6 +1,4 @@
-angular.module('ApartmentCtrl', [])
-
-	.controller('ApartmentController', function($scope, $http, $rootScope, Apartment) {
+angular.module('twApartments').controller('ApartmentController', function($scope, $http, $rootScope, Apartment) {
         $rootScope.isAdmin = true;
     	$rootScope.loading = true;
         $scope.formData = {};

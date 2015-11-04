@@ -8,7 +8,8 @@
 			<label for="message">Message</label>
 			<textarea id="message" ng-model="commentData.message" required></textarea>
 		</div>
-		<input type="submit" class="blue-button" value="OK" ng-click="addComment()"/>
+		<input type="submit" class="blue-button" value="OK" ng-click="addComment(commentData)"/>
+		{{banana}}
 	</form>
 	
 </div>

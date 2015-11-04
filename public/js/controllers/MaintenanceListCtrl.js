@@ -1,5 +1,4 @@
-angular.module('MaintenanceListCtrl',[])
-	.controller('MaintenanceListController',function($scope, $http, $rootScope, MaintenanceRequest, Apartment){
+angular.module('twApartments').controller('MaintenanceListController',function($scope, $http, $rootScope, MaintenanceRequest, Apartment){
 		$rootScope.isAdmin = true;
 		$rootScope.loading = true;
 		MaintenanceRequest.listWithApartment()

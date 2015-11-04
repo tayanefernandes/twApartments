@@ -1,6 +1,4 @@
-angular.module('ApartmentListCtrl', [])
-
-	.controller('ApartmentListController', function($scope, $http, $rootScope, Apartment) {
+angular.module('twApartments').controller('ApartmentListController', function($scope, $http, $rootScope, Apartment) {
 		$rootScope.isAdmin = false;
 		$rootScope.loading = true;
 

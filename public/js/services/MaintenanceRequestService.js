@@ -1,4 +1,4 @@
-angular.module('MaintenanceRequestService', []).factory('MaintenanceRequest', ['$http', 'Apartment', function($http, Apartment) {
+angular.module('twApartments').factory('MaintenanceRequest', ['$http', 'Apartment', function($http, Apartment) {
 
     return {
         getApartmentById: function(apartmentId) {

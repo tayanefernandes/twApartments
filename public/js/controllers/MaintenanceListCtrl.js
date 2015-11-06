@@ -15,12 +15,11 @@ angular.module('twApartments').controller('MaintenanceListController',function($
         $scope.filterByApartment = 'all';
 
         $scope.toDoFilter = function (maintenance) {
-        	console.log(maintenance.isSolved);
-		    return !maintenance.isSolved;
+		    return !maintenance.isSolved && maintenance.comments.length === 0;
 		};
 
 		$scope.doingFilter = function (maintenance) {
-		    return maintenance.comments.length > 0;
+		    return maintenance.comments.length > 0 && !maintenance.isSolved;
 		};
 
 		$scope.doneFilter = function (maintenance) {

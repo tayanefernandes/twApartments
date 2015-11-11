@@ -1,0 +1,22 @@
+@import "variables";
+
+.error-message {
+	background: $red-error;
+	position: fixed;
+	top: 10px;
+	left: 33%;
+	border-radius: 5px;
+	width: 30%;
+	padding: 0.5em 1em;
+	color: white;
+	text-align: center;
+
+	.fa-times {
+		font-size: 0.8em;
+    	position: relative;
+    	float: right;
+    	top: -1px;
+    	right: -4px;
+    	cursor: pointer;
+	}
+}

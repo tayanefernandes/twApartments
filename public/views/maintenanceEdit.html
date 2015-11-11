@@ -1,4 +1,5 @@
 <div>
+   <div class="error-message" ng-show="showError">{{errorMessage}}<i class="fa fa-times" ng-click="closeError()"></i></div>
    <div class="form-container">
     	<h2>EDIT MAINTENANCE</h2>
 		<form name="maintenanceForm" novalidate>
@@ -16,7 +17,7 @@
 				<textarea ng-model="maintenanceRequest.issueDescription" name="description" required></textarea>
 			</div>
 			<div ng-show="maintenanceRequest.isUrgent"><i class="fa fa-exclamation-circle fa-2x"></i>Maintenance signalized as urgent</div>
-			<div>
+			<div class="comments">
 				<label>Comments</label>
 				<ul>
 					<li ng-repeat="comment in maintenanceRequest.comments">

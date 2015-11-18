@@ -11,7 +11,7 @@ angular.module('twApartments').controller('MaintenanceEditController', function(
 
     $scope.openCommentDialog = function() {
         ngDialog.open({
-            template: '../views/comment_template.html',
+            template: '../views/commentTemplate.html',
             className: 'ngdialog-theme-default',
             showClose: false,
             scope: $scope

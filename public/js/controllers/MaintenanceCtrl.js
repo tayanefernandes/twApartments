@@ -45,7 +45,7 @@ angular.module('twApartments').controller('MaintenanceController', function($sco
 
         $scope.showDialogError = function() {
            ngDialog.open({
-                    template: '../views/error-template.html',
+                    template: '../views/errorTemplate.html',
                     className: 'ngdialog-theme-default',
                     showClose: false
                 });

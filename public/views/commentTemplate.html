@@ -1,5 +1,6 @@
 <div class="dialog-content">
-	<form name="commentForm">
+	<form name="commentForm" class="form-comment">
+		<h3>Add new comment</h3>
 		<div>
 			<label for="author">Your Name</label>
 			<input id="author" type="text" ng-model="commentData.author" required/>
@@ -8,8 +9,8 @@
 			<label for="message">Message</label>
 			<textarea id="message" ng-model="commentData.message" required></textarea>
 		</div>
-		<input type="submit" class="blue-button" value="OK" ng-click="addComment(commentData)"/>
-		{{banana}}
+		<input type="submit" class="blue-button" value="Add" ng-click="addComment(commentData)"/>
+		<a href="#" ng-click="closeThisDialog()">Or, go back to maintenance page</a>
 	</form>
 	
 </div>

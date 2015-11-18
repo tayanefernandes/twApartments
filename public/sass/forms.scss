@@ -132,4 +132,15 @@
 			}
 		}
 	}
+
+	.urgent-label {
+		.fa-exclamation-circle {
+			float:left;
+			margin-right: 8px;
+		}
+
+		label {
+			line-height: 2.1em;
+		}
+	}
 }

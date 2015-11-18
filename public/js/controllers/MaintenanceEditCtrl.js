@@ -2,6 +2,7 @@ angular.module('twApartments').controller('MaintenanceEditController', function(
 	$scope.formData = {};
     $rootScope.isAdmin = true;
     $rootScope.loading = true;
+    $scope.commentForm = {};
 
     MaintenanceRequest.getMaintenanceById($routeParams.maintenanceRequestId)
         .success(function(data){
@@ -10,6 +11,7 @@ angular.module('twApartments').controller('MaintenanceEditController', function(
         });
 
     $scope.openCommentDialog = function() {
+        $scope.submitted = false;
         ngDialog.open({
             template: '../views/commentTemplate.html',
             className: 'ngdialog-theme-default',
@@ -27,7 +29,19 @@ angular.module('twApartments').controller('MaintenanceEditController', function(
         $scope.showError = false; 
     }; 
 
+    $scope.hasError = function(field) {
+        if (field !== undefined) {
+            return (field.$touched || $scope.submitted) && field.$invalid;
+        } else {
+            return false;
+        }
+    };
+
     $scope.addComment = function(commentData){
+        $scope.submitted = true;
+        if($scope.commentForm.form.$invalid) {
+            return false;
+        }
         MaintenanceRequest.addComment(commentData, $routeParams.maintenanceRequestId)
             .success(function(data){
                 $scope.maintenanceRequest.comments = data.comments;

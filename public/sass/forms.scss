@@ -79,15 +79,16 @@
 			   	-webkit-border-radius: 3px;
 			   	border-radius: 3px;
 			   	top: -2px;
-    			right: 26%;
+    			right: 0;
     			padding: 3px 6px;
     			font-size: 0.8em;
+    			line-height: 1.4em;
 			}
 
 			&:before {
 				content: "";
     			position: absolute;
-    			right: 29.8%;
+    			right: 6%;
     			top: 17px;
     			width: 0;
 			    height: 0;

@@ -1,13 +1,13 @@
-<div class="dialog-content">
-	<form name="commentForm" class="form-comment">
+<div class="dialog-content form-container">
+	<form name="commentForm.form" class="form-comment" novalidate>
 		<h3>Add new comment</h3>
-		<div>
+		<div ng-class="{ 'has-error': hasError(commentForm.form.author)}">
 			<label for="author">Your Name</label>
-			<input id="author" type="text" ng-model="commentData.author" required/>
+			<input id="author" name="author" type="text" ng-model="commentData.author" required/>
 		</div>
-		<div>
+		<div ng-class="{ 'has-error': hasError(commentForm.form.message)}">
 			<label for="message">Message</label>
-			<textarea id="message" ng-model="commentData.message" required></textarea>
+			<textarea id="message" name="message" ng-model="commentData.message" required></textarea>
 		</div>
 		<input type="submit" class="blue-button" value="Add" ng-click="addComment(commentData)"/>
 		<a href="#" ng-click="closeThisDialog()">Or, go back to maintenance page</a>

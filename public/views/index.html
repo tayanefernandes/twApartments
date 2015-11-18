@@ -32,9 +32,12 @@
 <body ng-app="twApartments">
 <div class="container">
     <header>
+        <img src="../images/build.png"/>
         <h1>THOUGHTWORKS APARTMENTS <span ng-if="isAdmin">- ADMIN</span></h1>
     </header>
-    <a ng-if="isAdmin" href="/admin/apartments">Apartments Manager</a>
+    <div class="menu">
+        <a ng-if="isAdmin" href="/admin/apartments">Apartments Manager</a>
+    </div>
 
     <div class="content" ng-view>
     </div>

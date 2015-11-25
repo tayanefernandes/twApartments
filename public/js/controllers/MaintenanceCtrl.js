@@ -14,7 +14,6 @@ angular.module('twApartments').controller('MaintenanceController', function($sco
                 return false;
             }
             $scope.formData.apartmentId = $routeParams.apartmentId;
-
             createMaintenanceRequest($scope.formData);
         };
 
@@ -34,21 +33,23 @@ angular.module('twApartments').controller('MaintenanceController', function($sco
         };
 
         var showDialogSucess = function() {
+            $scope.modalMessage = '<h3>Maintenance sent successfully!</h3><p>Request sent to office_admin_poa@thoughtworks.com. We will notify you as soon as possible.</p>';
             ngDialog.open({
-                    template: '../views/success-template.html',
-                    className: 'ngdialog-theme-default',
-                    showClose: false
-                }).closePromise.then(function(data){
-                    window.location.href = "/";
-                });
+                template: '../views/successTemplate.html',
+                className: 'ngdialog-theme-default',
+                showClose: false,
+                scope: $scope
+            }).closePromise.then(function(data){
+                window.location.href = "/";
+            });
         };
 
         $scope.showDialogError = function() {
            ngDialog.open({
-                    template: '../views/errorTemplate.html',
-                    className: 'ngdialog-theme-default',
-                    showClose: false
-                });
+                template: '../views/errorTemplate.html',
+                className: 'ngdialog-theme-default',
+                showClose: false
+            });
         };
 
         

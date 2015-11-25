@@ -1,4 +1,5 @@
-angular.module('twApartments').controller('MaintenanceEditController', function($scope, $http, $routeParams, $rootScope, MaintenanceRequest, ngDialog) {
+angular.module('twApartments').controller('MaintenanceEditController',
+ function($scope, $http, $routeParams, $rootScope, MaintenanceRequest, ngDialog) {
 	$scope.formData = {};
     $rootScope.isAdmin = true;
     $rootScope.loading = true;
@@ -11,7 +12,7 @@ angular.module('twApartments').controller('MaintenanceEditController', function(
         });
 
     $scope.openCommentDialog = function() {
-        $scope.submitted = false;
+        $scope.commentSubmitted = false;
         ngDialog.open({
             template: '../views/commentTemplate.html',
             className: 'ngdialog-theme-default',
@@ -31,14 +32,14 @@ angular.module('twApartments').controller('MaintenanceEditController', function(
 
     $scope.hasError = function(field) {
         if (field !== undefined) {
-            return (field.$touched || $scope.submitted) && field.$invalid;
+            return (field.$touched || $scope.commentSubmitted) && field.$invalid;
         } else {
             return false;
         }
     };
 
     $scope.addComment = function(commentData){
-        $scope.submitted = true;
+        $scope.commentSubmitted = true;
         if($scope.commentForm.form.$invalid) {
             return false;
         }
@@ -48,6 +49,44 @@ angular.module('twApartments').controller('MaintenanceEditController', function(
                 ngDialog.closeAll();
             }).error(function(){
                 openError('Error. Try again!');
+            });
+    };
+
+    $scope.submitForm = function(){
+        $scope.submitted = true;
+        if($scope.maintenanceForm.$invalid) {
+            return false;
+        }
+        $scope.maintenanceRequest.maintenanceRequestId = $routeParams.maintenanceRequestId;
+        updateMaintenanceRequest($scope.maintenanceRequest);
+    };
+
+    var updateMaintenanceRequest = function(formData) { 
+        MaintenanceRequest.update(formData)
+            .success(function(data){
+                showDialogSucess();
+            }).error(function(){
+                showDialogError();
+            });
+    };
+
+    var showDialogSucess = function() {
+        $scope.modalMessage = '<h3>Maintenance updated successfully</h3>';
+        ngDialog.open({
+                template: '../views/successTemplate.html',
+                className: 'ngdialog-theme-default',
+                showClose: false,
+                scope: $scope
+        }).closePromise.then(function(data){
+            window.location.href = "/admin";
+        });;
+    };
+
+    $scope.showDialogError = function() {
+       ngDialog.open({
+                template: '../views/errorTemplate.html',
+                className: 'ngdialog-theme-default',
+                showClose: false
             });
     };
 });

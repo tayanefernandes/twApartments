@@ -58,6 +58,27 @@ module.exports = function(app) {
         });
     });
 
+    app.put('/api/maintenancerequests', function(req, res) {
+        MaintenanceRequest.findByIdAndUpdate(req.body.maintenanceRequestId,
+            {
+                $set: { 
+                    requesterName : req.body.requesterName, 
+                    issueDescription: req.body.issueDescription,
+                    isSolved: req.body.isSolved
+                }
+            },
+            {  
+                safe: true,
+                upsert: true
+            },
+           function(err, maintenance) {
+             if(err){
+                res.send(err);
+             }
+             res.json(maintenance);
+          });
+    });
+
     app.put('/api/maintenancerequests/comments/:maintenance_id', function(req, res) {
         MaintenanceRequest.findByIdAndUpdate(req.params.maintenance_id,
             {$push: {

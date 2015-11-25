@@ -1,1 +1,1 @@
-angular.module('twApartments', ['ngRoute', 'ngDialog']);
+angular.module('twApartments', ['ngRoute', 'ngDialog', 'ngSanitize']);

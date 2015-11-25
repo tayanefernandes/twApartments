@@ -4,7 +4,9 @@
     "dependencies": {
         "angular": "latest",
         "angular-route": "latest",
+        "angular-sanitize": "latest",
         "normalize-css": "latest",
-        "ngDialog": "latest"  
+        "ngDialog": "latest",
+        "components-font-awesome": "latest"  
     }
 }

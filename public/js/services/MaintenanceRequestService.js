@@ -17,6 +17,10 @@ angular.module('twApartments').factory('MaintenanceRequest', ['$http', 'Apartmen
             return $http.post('/api/maintenancerequests', maintenanceData);
         },
 
+        update: function(maintenanceData) {
+            return $http.put('/api/maintenancerequests', maintenanceData);
+        },
+
         delete: function(id) {
             return $http.delete('/api/maintenancerequests/' + id);
         },

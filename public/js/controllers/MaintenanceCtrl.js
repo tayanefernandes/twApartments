@@ -26,13 +26,13 @@ angular.module('twApartments').controller('MaintenanceController', function($sco
             formData.apartmentRelated =  $scope.apartmentRelated;   
             MaintenanceRequest.create(formData)
                 .success(function(data){
-                    showDialogSucess();
+                    showDialogSuccess();
                 }).error(function(){
                     showDialogError();
                 });
         };
 
-        var showDialogSucess = function() {
+        var showDialogSuccess = function() {
             $scope.modalMessage = '<h3>Maintenance sent successfully!</h3><p>Request sent to office_admin_poa@thoughtworks.com. We will notify you as soon as possible.</p>';
             ngDialog.open({
                 template: '../views/successTemplate.html',

@@ -1,8 +1,8 @@
 .apartment-list {
 	ul {
 		margin: 0;
-		padding: 0;
-		width: 100%;
+		padding: 0 2em;
+		@include outer-container;
 
 		@for $i from 1 through length($colors-apartments) {
 			li:nth-child(6n + #{$i}) {
@@ -11,21 +11,39 @@
 		}
 
 		li {
+			@include span-columns(4);
+			@include omega(3n);
+
+
+			@include tablet {
+				@include span-columns(6);
+				@include omega(2n);
+			}
+
+			@include mobile {
+				@include span-columns(12);
+				@include omega(1n);
+				height: auto;
+			}
+
 			height: 190px;
-			width: 190px;
 			list-style-type: none;
 			border-radius: 4px;
-			margin-left: 2.2em;
-			margin-right: 2em;
 			margin-top: 2.2em;
     		box-shadow: 3px 3px 9px 2px #DFDFDF;
-    		float: left;
 
     		div {
     			color: white;
     			padding: 1.5em;
     			font-size: 0.9em;
-    			height: 64.5%;
+    			height: 81.8%;
+
+    			@include mobile {
+					display: inline-block;
+					width: 60%;
+					font-size: 0.7em;
+					float: left;
+				}
 
     			h3 {
     				font-weight: $bold;
@@ -47,6 +65,18 @@
 				text-decoration: none;
 				text-align: center;
 				line-height: 3.1em;
+
+				@include mobile {
+					display: inline-block;
+					width: 40%;
+					height: 68px;
+					vertical-align: top;
+					padding: 12px;
+					border-radius: 0 4px 4px 0;
+					font-size: 0.8em;
+					line-height: 2em;
+					float: right;
+				}
     		}
 		}
 	}

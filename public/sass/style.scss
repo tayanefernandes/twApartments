@@ -1,3 +1,8 @@
+$gutter: 10em;
+
+@import "../libs/bourbon/app/assets/stylesheets/bourbon";
+@import "../libs/neat/app/assets/stylesheets/neat";
+@import "mediaQueries";
 @import "variables";
 @import "spinner";
 @import "apartments";
@@ -12,6 +17,7 @@
 body {
 	font-family: 'Open Sans', sans-serif;
 	background: $dark-gray;
+	@include outer-container;
 }
 
 h2 {
@@ -34,10 +40,20 @@ a {
 }
 
 .container {
-	width: 62%;
-	margin: 0 auto;
+	@include span-columns(9);
+	@include shift(1.5);
 	background: $light-gray;
 	overflow: hidden;
+
+	@include tablet {
+		@include span-columns(10);
+		@include shift(1);
+	}
+
+	@include mobile {
+		@include span-columns(12);
+		@include shift(0);
+	}
 
 	header {
 		background: $gray;
@@ -49,12 +65,29 @@ a {
 			line-height: 2.3em;
 			font-size: 1.4em;
 			font-weight: $bold;
+
+			@include mobile {
+				font-size: 0.8em;
+			}
+
+			@include tablet {
+				font-size: 0.9em;
+			}
 		}
 
 		img {
 			width: 41px;
 			float: left;
 			margin-right: 1em;
+
+			@include mobile {
+				width: 20px;
+			}
+
+			@include tablet {
+				width: 30px;
+			}
+
 		}
 	}
 

@@ -7,6 +7,8 @@
         "angular-sanitize": "latest",
         "normalize-css": "latest",
         "ngDialog": "latest",
-        "components-font-awesome": "latest"  
+        "components-font-awesome": "latest",
+        "neat": "latest",
+        "bourbon": "latest"
     }
 }

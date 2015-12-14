@@ -1,5 +1,5 @@
 angular.module('twApartments').controller('MaintenanceController', function($scope, $http, $routeParams, $rootScope, MaintenanceRequest, ngDialog) {
-		$scope.formData = {};
+        $scope.formData = {};
         $rootScope.loading = true;
 
         MaintenanceRequest.getApartmentById($routeParams.apartmentId)
@@ -22,7 +22,7 @@ angular.module('twApartments').controller('MaintenanceController', function($sco
         };
 
 
-        var createMaintenanceRequest = function(formData) { 
+        var createMaintenanceRequest = function(formData) {
             formData.apartmentRelated =  $scope.apartmentRelated;   
             MaintenanceRequest.create(formData)
                 .success(function(data){
@@ -44,13 +44,11 @@ angular.module('twApartments').controller('MaintenanceController', function($sco
             });
         };
 
-        $scope.showDialogError = function() {
+        var showDialogError = function() {
            ngDialog.open({
                 template: '../views/errorTemplate.html',
                 className: 'ngdialog-theme-default',
                 showClose: false
             });
         };
-
-        
     });

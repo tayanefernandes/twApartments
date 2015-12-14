@@ -1,6 +1,7 @@
 @import "variables";
 .content-list {
 	tr {
+		@include span-columns(12);
 		border: solid $border-gray 2px;
 		background: white;
 

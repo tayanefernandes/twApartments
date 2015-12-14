@@ -23,7 +23,7 @@
 
     <h3>DOING</h3>
     <table>
-      <tr ng-repeat="maintenance in maintenanceList | filter:doingFilter | filter:query">
+      <tr ng-repeat="maintenance in maintenanceList | filter:doingFilter | filter:filterMaintenance">
         <td><i class="fa fa-exclamation-circle fa-2x" ng-show="maintenance.isUrgent"></i></td>
         <td>{{ maintenance._apartment.address }}</td>
         <td>{{ maintenance.issueDescription }}</td>
@@ -36,7 +36,7 @@
 
     <h3>DONE</h3>
     <table>
-      <tr ng-repeat="maintenance in maintenanceList | filter:doneFilter | filter:query">
+      <tr ng-repeat="maintenance in maintenanceList | filter:doneFilter | filter:filterMaintenance">
         <td><i class="fa fa-exclamation-circle fa-2x" ng-show="maintenance.isUrgent"></i></td>
         <td>{{ maintenance._apartment.address }}</td>
         <td>{{ maintenance.issueDescription }}</td>

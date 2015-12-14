@@ -30,7 +30,6 @@ angular.module('twApartments').controller('MaintenanceListController',function($
 			return $scope.filterByApartment === 'all' ? true : $scope.filterByApartment === maintenance._apartment._id;
 		};
 
-		// delete a todo after checking it
         $scope.deleteMaintenanceRequest = function(id) {
             MaintenanceRequest.delete(id)
                 .success(function(data) {

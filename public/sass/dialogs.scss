@@ -1,7 +1,19 @@
 @import "variables";
 
-.ngdialog-content {
-	width: 40% !important;
+.ngdialog-open .ngdialog.ngdialog-theme-default .ngdialog-content {
+	@include span-columns(5);
+	@include shift(3.5);
+
+	@include tablet {
+		@include span-columns(8);
+		@include shift(2);
+	}
+
+	@include mobile {
+		@include span-columns(10);
+		@include shift(1);
+		padding: 0.5em;
+	}
 }
 
 .dialog-content {
@@ -12,6 +24,11 @@
 	i {
 		float: left;
 		width: 20%;
+		font-size: 3.5em;
+
+		@include mobile {
+			font-size: 2.5em;
+		}
 
 		&.fa-times {
 			color: $light-red;
@@ -31,6 +48,10 @@
 
 		h3 {
 			font-weight: normal;
+
+			@include mobile {
+				font-size: 0.9em;
+			}
 		}
 
 		p {
@@ -38,6 +59,10 @@
 			line-height: 1.4em;
 			color: #7B7B7B;
 			padding-bottom: 1em;
+
+			@include mobile {
+				font-size: 0.7em;
+			}
 		}
 	}
 
@@ -45,5 +70,13 @@
 		display: block;
 		width: 20%;
 		margin: 0 auto;
+
+		@include tablet {
+			width: 30%;
+		}
+
+		@include mobile {
+			width: 50%;
+		}
 	}
 }

@@ -1,22 +1,55 @@
 @import "variables";
 .content-list {
-	tr {
-		@include span-columns(12);
-		border: solid $border-gray 2px;
-		background: white;
+	ul.maintenance-list {
+		overflow: hidden;
+		margin: 0;
+		padding: 0;
+		border-bottom: solid $border-gray 2px;
+		@include outer-container;
 
-		td {
-			border: none;
-			height: 2em;
-			padding: 0.8em;
 
-			.blue-button {
-				padding: 0.2em 1.5em;
-				margin: 0 1em;
+		li {
+			@include row(table);
+			border-top: solid $border-gray 2px;
+			border-left: solid $border-gray 2px;
+			border-right: solid $border-gray 2px;
+			background: white;
+			height: 3.8em;
+
+			div {
+				@include pad(3px 5px 3px 5px);
+
+				&.icon-alert {
+					@include span-columns(1);
+				}
+
+				&.td-address {
+					@include span-columns(2);
+				}
+
+				&.td-description {
+					@include span-columns(3);
+				}
+
+				&.td-comments {
+					@include span-columns(2);
+				}
+
+				&.td-button-edit {
+					@include span-columns(2);
+				}
+
+				&.td-button-delete {
+					@include span-columns(2);
+					@include reset-display;
+				}
+
+				.blue-button {
+					padding: 0.2em 1.5em;
+				}
 			}
 		}
 	}
-
 }
 
 select {

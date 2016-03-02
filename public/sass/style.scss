@@ -1,7 +1,9 @@
 $gutter: 10em;
+$fa-font-path: "../libs/components-font-awesome/fonts";
 
 @import "../libs/bourbon/app/assets/stylesheets/bourbon";
 @import "../libs/neat/app/assets/stylesheets/neat";
+@import "../libs/components-font-awesome/scss/font-awesome";
 @import "mediaQueries";
 @import "variables";
 @import "spinner";
@@ -67,7 +69,7 @@ a {
 			font-weight: $bold;
 
 			@include mobile {
-				font-size: 0.8em;
+				font-size: 0.7em;
 			}
 
 			@include tablet {

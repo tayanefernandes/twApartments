@@ -11,38 +11,72 @@
     <h3>TO DO</h3>
     <ul class="maintenance-list">
       <li ng-repeat="maintenance in maintenanceList | filter:toDoFilter | filter:filterMaintenance">
-        <div class="icon-alert"><i class="fa fa-exclamation-circle fa-2x" ng-show="maintenance.isUrgent"></i></div>
-        <div class="td-address">{{ maintenance._apartment.address }}</div>
-        <div class="td-description">{{ maintenance.issueDescription }}</div>
-        <div class="td-comments"><b>{{ maintenance.comments.length }} comments</b></div>
-        <div class="td-button-edit"><a class="blue-button" href="admin/maintenance/edit/{{maintenance._id}}">Edit</a></div>
-        <div class="td-button-delete"><a class="blue-button" ng-click="deleteMaintenanceRequest(maintenance._id)"> Delete </a></div>
+        <div class="td-address" ng-class="{'urgent':maintenance.isUrgent}">
+          {{ maintenance._apartment.address }}
+        </div>
+        <div class="td-description">
+          {{ maintenance.issueDescription }}
+        </div>
+        <div class="td-comments">
+          {{ maintenance.comments.length }}
+          <i class="fa fa-comments"></i>
+        </div>
+        <div class="td-actions">
+          <a href="admin/maintenance/edit/{{maintenance._id}}">
+            <i class="fa fa-pencil"></i>
+          </a>
+          <a ng-click="deleteMaintenanceRequest(maintenance._id)">
+            <i class="fa fa-trash"></i>
+          </a>
+        </div>
       </li>
     </ul>
 
     <h3>DOING</h3>
-    <table>
-      <tr ng-repeat="maintenance in maintenanceList | filter:doingFilter | filter:filterMaintenance">
-        <td><i class="fa fa-exclamation-circle fa-2x" ng-show="maintenance.isUrgent"></i></td>
-        <td>{{ maintenance._apartment.address }}</td>
-        <td>{{ maintenance.issueDescription }}</td>
-        <td><b>{{ maintenance.comments.length }} comments</b></td>
-
-        <td><a class="blue-button" href="admin/maintenance/edit/{{maintenance._id}}">Edit</a></td>
-        <td><a ng-click="deleteMaintenanceRequest(maintenance._id)"> delete </a></td>
-      </tr>
-    </table>
+    <ul class="maintenance-list">
+      <li ng-repeat="maintenance in maintenanceList | filter:doingFilter | filter:filterMaintenance">
+        <div class="td-address" ng-class="{'urgent':maintenance.isUrgent}">
+          {{ maintenance._apartment.address }}
+        </div>
+        <div class="td-description">
+          {{ maintenance.issueDescription }}
+        </div>
+        <div class="td-comments">
+          {{ maintenance.comments.length }}
+          <i class="fa fa-comments"></i>
+        </div>
+        <div class="td-actions">
+          <a href="admin/maintenance/edit/{{maintenance._id}}">
+            <i class="fa fa-pencil"></i>
+          </a>
+          <a ng-click="deleteMaintenanceRequest(maintenance._id)">
+            <i class="fa fa-trash"></i>
+          </a>
+        </div>
+      </li>
+    </ul>
 
     <h3>DONE</h3>
-    <table>
-      <tr ng-repeat="maintenance in maintenanceList | filter:doneFilter | filter:filterMaintenance">
-        <td><i class="fa fa-exclamation-circle fa-2x" ng-show="maintenance.isUrgent"></i></td>
-        <td>{{ maintenance._apartment.address }}</td>
-        <td>{{ maintenance.issueDescription }}</td>
-        <td><b>{{ maintenance.comments.length }} comments</b></td>
-
-        <td><a class="blue-button" href="admin/maintenance/edit/{{maintenance._id}}">Edit</a></td>
-        <td><a ng-click="deleteMaintenanceRequest(maintenance._id)"> delete </a></td>
-      </tr>
-    </table>
+    <ul class="maintenance-list">
+      <li ng-repeat="maintenance in maintenanceList | filter:doneFilter | filter:filterMaintenance">
+        <div class="td-address" ng-class="{'urgent':maintenance.isUrgent}">
+          {{ maintenance._apartment.address }}
+        </div>
+        <div class="td-description">
+          {{ maintenance.issueDescription }}
+        </div>
+        <div class="td-comments">
+          {{ maintenance.comments.length }}
+          <i class="fa fa-comments"></i>
+        </div>
+        <div class="td-actions">
+          <a href="admin/maintenance/edit/{{maintenance._id}}">
+            <i class="fa fa-pencil"></i>
+          </a>
+          <a ng-click="deleteMaintenanceRequest(maintenance._id)">
+            <i class="fa fa-trash"></i>
+          </a>
+        </div>
+      </li>
+    </ul>
 </div>

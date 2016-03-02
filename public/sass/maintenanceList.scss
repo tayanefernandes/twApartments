@@ -2,46 +2,93 @@
 .content-list {
 	ul.maintenance-list {
 		overflow: hidden;
-		margin: 0;
+		margin: 0.5em 0 1.5em 0;
 		padding: 0;
 		border-bottom: solid $border-gray 2px;
 		@include outer-container;
 
 
 		li {
-			@include row(table);
 			border-top: solid $border-gray 2px;
 			border-left: solid $border-gray 2px;
 			border-right: solid $border-gray 2px;
 			background: white;
-			height: 3.8em;
+			min-height: 3.8em;
+			display: flex;
+			align-items: center;
 
 			div {
 				@include pad(3px 5px 3px 5px);
 
-				&.icon-alert {
-					@include span-columns(1);
-				}
-
 				&.td-address {
-					@include span-columns(2);
+					@include span-columns(4);
+					padding-left: 2em;
+					position: relative;
+
+					&.urgent:before {
+						font-family: 'FontAwesome';
+						content: $fa-var-exclamation-circle;
+						left: 8px;
+    					position: absolute;
+    					top: 6px;
+    					color: #EFAD2D;
+					}
+
+					@include mobile {
+						@include span-columns(3);
+					}
 				}
 
 				&.td-description {
-					@include span-columns(3);
+					@include span-columns(5);
+
+					@include tablet {
+						@include span-columns(3);
+  						white-space: nowrap;
+  						overflow: hidden;
+  						text-overflow: ellipsis;
+					}
+
+					@include mobile {
+						@include span-columns(3);
+						white-space: nowrap;
+  						overflow: hidden;
+  						text-overflow: ellipsis;
+					}
 				}
 
 				&.td-comments {
-					@include span-columns(2);
+					@include span-columns(1.5);
+					@include omega;
+					margin-right: 1em;
+
+					.fa-comments {
+						margin-left: 2px;
+					}
+
+					@include tablet {
+						@include span-columns(2.5);
+					}
+
+					@include mobile {
+						@include span-columns(3);
+					}
 				}
 
-				&.td-button-edit {
-					@include span-columns(2);
-				}
+				&.td-actions {
+					@include span-columns(1.5);
 
-				&.td-button-delete {
-					@include span-columns(2);
-					@include reset-display;
+					a {
+						margin-right: 1em;
+					}
+
+					@include tablet {
+						@include span-columns(2.5);
+					}
+
+					@include mobile {
+						@include span-columns(3);
+					}
 				}
 
 				.blue-button {
@@ -68,8 +115,4 @@ select {
   	background-position: 99% center;
   	background-size: 20px 20px;
   	outline: 0;
-}
-
-.fa-exclamation-circle {
-	color: #EFAD2D;
 }

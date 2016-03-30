@@ -1,14 +1,14 @@
 {
-    "name": "twbooks",
+    "name": "tw-apartments",
     "version": "1.0.0",
     "dependencies": {
-        "angular": "latest",
-        "angular-route": "latest",
-        "angular-sanitize": "latest",
-        "normalize-css": "latest",
-        "ngDialog": "latest",
-        "components-font-awesome": "latest",
-        "neat": "latest",
-        "bourbon": "latest"
+        "angular": "1.4.7",
+        "angular-route": "1.4.7",
+        "angular-sanitize": "1.4.7",
+        "normalize-css": "3.0.3",
+        "ngDialog": "0.5.5",
+        "components-font-awesome": "4.5.0",
+        "neat": "1.7.2",
+        "bourbon": "4.2.6"
     }
 }

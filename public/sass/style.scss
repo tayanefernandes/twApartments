@@ -19,7 +19,6 @@ $fa-font-path: "../libs/components-font-awesome/fonts";
 body {
 	font-family: 'Open Sans', sans-serif;
 	background: $dark-gray;
-	@include outer-container;
 }
 
 h2 {
@@ -41,7 +40,12 @@ a {
 	font-weight: $super-bold;
 }
 
+.outer-container {
+	@include outer-container;
+}
+
 .container {
+
 	@include span-columns(9);
 	@include shift(1.5);
 	background: $light-gray;
@@ -146,6 +150,3 @@ a {
 	}
 }
 
-table {
-
-}

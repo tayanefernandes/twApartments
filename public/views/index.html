@@ -30,18 +30,20 @@
     <script src="js/services/ApartmentService.js"></script>
 </head>
 <body ng-app="twApartments">
-<div class="container">
-    <header>
-        <img src="../images/build.png"/>
-        <h1>THOUGHTWORKS APARTMENTS <span ng-if="isAdmin">- ADMIN</span></h1>
-    </header>
-    <div class="menu">
-        <a ng-if="isAdmin" href="/admin/apartments">Apartments Manager</a>
-    </div>
+    <div class="outer-container">
+        <div class="container">
+            <header>
+                <img src="../images/build.png"/>
+                <h1>THOUGHTWORKS APARTMENTS <span ng-if="isAdmin">- ADMIN</span></h1>
+            </header>
+            <div class="menu">
+                <a ng-if="isAdmin" href="/admin/apartments">Apartments Manager</a>
+            </div>
 
-    <div class="content" ng-view>
+            <div class="content" ng-view>
+            </div>
+        </div>
     </div>
-</div>
 <div class="overlay-div" ng-show="loading">
 </div>
 <div class="spinner" ng-show="loading">

@@ -23,7 +23,7 @@ angular.module('twApartments').controller('MaintenanceController', function($sco
 
 
         var createMaintenanceRequest = function(formData) {
-            formData.apartmentRelated =  $scope.apartmentRelated;   
+            formData.apartmentRelated =  $scope.apartmentRelated;
             MaintenanceRequest.create(formData)
                 .success(function(data){
                     showDialogSuccess();

@@ -39,48 +39,48 @@
 
 
     <div class="form-container">
-		<form>
-			<div>
+		<form name="apartmentForm" novalidate>
+			<div ng-class="{ 'has-error': hasError(apartmentForm.name)}">
 				<label>Name</label>
-				<input type="text" ng-model="formData.name" required>
+				<input type="text" ng-model="apartment.name" name="name" required>
 			</div>
-			<div>
+			<div ng-class="{ 'has-error': hasError(apartmentForm.address)}">
 				<label>Address</label>
-				<input type="text" ng-model="formData.address" required>
+				<input type="text" ng-model="apartment.address" name="address" required>
 			</div>
-			<div>
+			<div ng-class="{ 'has-error': hasError(apartmentForm.energyInfo)}">
 				<label>Information about Electric Energy</label>
-				<input type="text" ng-model="formData.energyInfo">
+				<input type="text" ng-model="apartment.energyInfo" name="energyInfo" >
 			</div>
-			<div>
+			<div ng-class="{ 'has-error': hasError(apartmentForm.internetInfo)}">
 				<label>Information about Internet Access</label>
-				<input type="text" ng-model="formData.internetInfo">
+				<input type="text" ng-model="apartment.internetInfo" name="internetInfo">
 			</div>
-			<div>
+			<div ng-class="{ 'has-error': hasError(apartmentForm.rentAmount)}">
 				<label>Rent Amount</label>
-				<input type="text" ng-model="formData.rentAmount" required>
+				<input type="text" ng-model="apartment.rentAmount" name="rentAmount" required>
 			</div>
-			<div>
+			<div ng-class="{ 'has-error': hasError(apartmentForm.condominium)}">
 				<label>Condominium</label>
-				<input type="text" ng-model="formData.condominium" required>
+				<input type="text" ng-model="apartment.condominium" name="condominium" required>
 			</div>
-			<div>
+			<div ng-class="{ 'has-error': hasError(apartmentForm.mainBedrooms)}">
 				<label>Main Bedrooms</label>
-				<input type="number" ng-model="formData.mainBedrooms" integer>
+				<input type="number" ng-model="apartment.mainBedrooms" name="mainBedrooms" integer>
 			</div>
-			<div>
+			<div ng-class="{ 'has-error': hasError(apartmentForm.contractStartDate)}">
 				<label>Contract Start Date</label>
-				<input type="date" ng-model="formData.contractStartDate" required>
+				<input type="date" ng-model="apartment.contractStartDate" name="contractStartDate" required min="2013-01-01">
 			</div>
-			<div>
+			<div ng-class="{ 'has-error': hasError(apartmentForm.allowedToReturnAfter)}">
 				<label>Allowed to return after</label>
-				<input type="date" ng-model="formData.allowedToReturnAfter">
+				<input type="date" ng-model="apartment.allowedToReturnAfter" name="allowedToReturnAfter" min="2013-01-01">
 			</div>
-			<div>
+			<div ng-class="{ 'has-error': hasError(apartmentForm.observations)}">
 				<label>Observations</label>
-				<textarea ng-model="formData.observations"></textarea>
+				<textarea ng-model="apartment.observations" name="observations"></textarea>
 			</div>
-			<button class="blue-button" type="submit" ng-click="createApartment()">SAVE</button>
-		</form>		
+			<button class="blue-button" type="submit" ng-click="submitForm()">SAVE</button>
+		</form>
 	</div>
 </div>

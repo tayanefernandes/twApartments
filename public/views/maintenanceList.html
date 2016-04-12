@@ -9,7 +9,7 @@
     </div>
 
     <h3>TO DO</h3>
-    <ul class="maintenance-list">
+    <ul class="list maintenance-list">
       <li ng-repeat="maintenance in maintenanceList | filter:toDoFilter | filter:filterMaintenance">
         <div class="td-address" ng-class="{'urgent':maintenance.isUrgent}">
           {{ maintenance._apartment.address }}
@@ -33,7 +33,7 @@
     </ul>
 
     <h3>DOING</h3>
-    <ul class="maintenance-list">
+    <ul class="list maintenance-list">
       <li ng-repeat="maintenance in maintenanceList | filter:doingFilter | filter:filterMaintenance">
         <div class="td-address" ng-class="{'urgent':maintenance.isUrgent}">
           {{ maintenance._apartment.address }}
@@ -57,7 +57,7 @@
     </ul>
 
     <h3>DONE</h3>
-    <ul class="maintenance-list">
+    <ul class="list maintenance-list">
       <li ng-repeat="maintenance in maintenanceList | filter:doneFilter | filter:filterMaintenance">
         <div class="td-address" ng-class="{'urgent':maintenance.isUrgent}">
           {{ maintenance._apartment.address }}

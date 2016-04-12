@@ -1,0 +1,24 @@
+@import "variables";
+
+.list {
+	overflow: hidden;
+	margin: 0.5em 0 1.5em 0;
+	padding: 0;
+	border-bottom: solid $border-gray 2px;
+	@include outer-container;
+
+
+	li {
+		border-top: solid $border-gray 2px;
+		border-left: solid $border-gray 2px;
+		border-right: solid $border-gray 2px;
+		background: white;
+		min-height: 3.8em;
+		display: flex;
+		align-items: center;
+
+		div {
+			@include pad(3px 5px 3px 5px);
+		}
+	}
+}

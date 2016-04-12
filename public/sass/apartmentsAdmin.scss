@@ -1,0 +1,32 @@
+@import "variables";
+
+.apartment-list {
+	li {
+		@include pad(0px 8px 0px 8px);
+	}
+
+	.td-name {
+		@include span-columns(3);
+	}
+
+	.td-address {
+		@include span-columns(4);
+	}
+
+	.td-rent {
+		@include span-columns(1);
+	}
+
+	.td-observations {
+		@include span-columns(2.5);
+	}
+
+
+	.td-actions {
+		@include span-columns(1.5);
+
+		a {
+			margin-right: 1em;
+		}
+	}
+}

@@ -2,39 +2,32 @@
 <div>
     <h1>Apartments</h1>
 
-    <p>{{ tagline }}</p>
-
     Number of Apartments: {{apartments.length}}
 
-    <!-- LOOP OVER THE TODOS IN $scope.todos -->
-	<table>
-		<tr>
-			<th>Name</th>
-			<th>Address</th>
-			<th>Rent</th>
-			<th>Observations</th>
-
-			<th></th>
-		</tr>
-
-		<tr ng-repeat="apt in apartments">
-			<td>
+	<ul class="list apartment-list">
+		<li ng-repeat="apt in apartments">
+			<div class="td-name">
 				<span>{{ apt.name }}</span>
-			</td>
-			<td>
+			</div>
+			<div class="td-address">
 				{{ apt.address }}
-			</td>
-			<td>
+			</div>
+			<div class="td-rent">
 				{{ apt.rentAmount }}
-			</td>
-			<td>
+			</div>
+			<div class="td-observations">
 				{{ apt.observations }}
-			</td>
-			<td>
-				<a ng-click="deleteApartment(apt._id)"> delete </a>
-			</td>
-		</tr>
-	</table>
+			</div>
+			<div class="td-actions">
+	        	<a href="admin/maintenance/edit/{{maintenance._id}}">
+	            	<i class="fa fa-pencil"></i>
+	         	</a>
+	         	<a ng-click="deleteApartment(apt._id)">
+	            	<i class="fa fa-trash"></i>
+	         	</a>
+	        </div>
+		</li>
+	</ul>
 
 
 
@@ -58,11 +51,11 @@
 			</div>
 			<div ng-class="{ 'has-error': hasError(apartmentForm.rentAmount)}">
 				<label>Rent Amount</label>
-				<input type="text" ng-model="apartment.rentAmount" name="rentAmount" required>
+				<input type="number" ng-model="apartment.rentAmount" name="rentAmount" required>
 			</div>
 			<div ng-class="{ 'has-error': hasError(apartmentForm.condominium)}">
 				<label>Condominium</label>
-				<input type="text" ng-model="apartment.condominium" name="condominium" required>
+				<input type="number" ng-model="apartment.condominium" name="condominium" required>
 			</div>
 			<div ng-class="{ 'has-error': hasError(apartmentForm.mainBedrooms)}">
 				<label>Main Bedrooms</label>

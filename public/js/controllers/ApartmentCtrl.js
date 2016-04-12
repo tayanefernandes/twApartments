@@ -19,18 +19,22 @@ angular.module('twApartments').controller('ApartmentController', function($scope
                     $scope.apartment = {};
                     $scope.apartments = data;
                     $rootScope.loading = false;
-                    showDialogSuccess();
+                    // showDialogSuccess();
                 }).error(function(){
-                    showDialogError();
+                    // showDialogError();
                 });
         };
 
-        $scope.submitForm = function(){
+        $scope.submitForm = function() {
+            console.log('Entrou aqui');
             $scope.submitted = true;
+
             if($scope.apartmentForm.$invalid) {
                 return false;
             }
+
             createApartment();
+            $scope.submitted = false;
         };
 
         var showDialogSuccess = function() {
@@ -55,17 +59,23 @@ angular.module('twApartments').controller('ApartmentController', function($scope
 
         // delete a apartment after checking it
         $scope.deleteApartment = function(id) {
-            $rootScope.loading = true;
-            Apartment.delete(id)
-                .success(function(data) {
-                    $scope.apartments = data;
-                    $rootScope.loading = false;
-                });
+            var result = window.confirm('Are you sure you want to delete this apartment?');
+
+            if(result) {
+                $rootScope.loading = true;
+                 Apartment.delete(id)
+                    .success(function(data) {
+                        $scope.apartments = data;
+                        $rootScope.loading = false;
+                    });
+            }
         };
 
         $scope.hasError = function(field) {
             if (field !== undefined && field !== null) {
-                return (field.$touched || $scope.submitted) && field.$invalid;
+                if($scope.submitted) {
+                    return field.$invalid;
+                }
             } else {
                 return false;
             }

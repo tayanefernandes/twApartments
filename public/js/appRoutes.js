@@ -17,8 +17,16 @@
             controller: 'MaintenanceListController'
         })
         .when('/admin/apartments', {
-            templateUrl: 'views/apartment.html',
-            controller: 'ApartmentController'
+            templateUrl: 'views/apartmentAdmin.html',
+            controller: 'ApartmentAdminController'
+        })
+        .when('/admin/apartment/edit/:apartmentId', {
+            templateUrl: 'views/apartmentEdit.html',
+            controller: 'ApartmentEditController'
+        })
+        .when('/admin/apartment/create', {
+            templateUrl: 'views/apartmentEdit.html',
+            controller: 'ApartmentEditController'
         })
         .when('/admin/maintenance/edit/:maintenanceRequestId', {
             templateUrl: 'views/maintenanceEdit.html',

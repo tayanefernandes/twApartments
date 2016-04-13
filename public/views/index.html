@@ -21,8 +21,9 @@
 
     <script src="js/app.js"></script>
     <script src="js/appRoutes.js"></script>
-    <script src="js/controllers/ApartmentCtrl.js"></script>
+    <script src="js/controllers/ApartmentAdminCtrl.js"></script>
     <script src="js/controllers/ApartmentListCtrl.js"></script>
+    <script src="js/controllers/ApartmentEditCtrl.js"></script>
     <script src="js/controllers/MaintenanceCtrl.js"></script>
     <script src="js/controllers/MaintenanceListCtrl.js"></script>
     <script src="js/controllers/MaintenanceEditCtrl.js"></script>
@@ -36,9 +37,6 @@
                 <img src="../images/build.png"/>
                 <h1>THOUGHTWORKS APARTMENTS <span ng-if="isAdmin">- ADMIN</span></h1>
             </header>
-            <div class="menu">
-                <a ng-if="isAdmin" href="/admin/apartments">Apartments Manager</a>
-            </div>
 
             <div class="content" ng-view>
             </div>

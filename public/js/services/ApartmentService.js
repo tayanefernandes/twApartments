@@ -19,7 +19,11 @@ angular.module('twApartments').factory('Apartment', ['$http', function($http) {
         // call to DELETE a apartment
         delete : function(id) {
             return $http.delete('/api/apartments/' + id);
+        },
+
+        update: function(apartmentData) {
+            return $http.put('/api/apartments', apartmentData);
         }
-    }      
+    }
 
 }]);

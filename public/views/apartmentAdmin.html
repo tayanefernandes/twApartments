@@ -1,0 +1,31 @@
+<div>
+	<div class="menu">
+        <a href="/admin/apartment/create">Create Apartment</a>
+    </div>
+    <h2>APARTMENTS <span>({{apartments.length}})</span></h2>
+
+	<ul class="list apartment-list">
+		<li ng-repeat="apt in apartments">
+			<div class="td-name">
+				<span>{{ apt.name }}</span>
+			</div>
+			<div class="td-address">
+				{{ apt.address }}
+			</div>
+			<div class="td-rent">
+				{{ apt.rentAmount }}
+			</div>
+			<div class="td-observations">
+				{{ apt.observations }}
+			</div>
+			<div class="td-actions">
+	        	<a href="admin/apartment/edit/{{apt._id}}">
+	            	<i class="fa fa-pencil"></i>
+	         	</a>
+	         	<a ng-click="deleteApartment(apt._id)">
+	            	<i class="fa fa-trash"></i>
+	         	</a>
+	        </div>
+		</li>
+	</ul>
+</div>

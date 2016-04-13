@@ -57,7 +57,36 @@ module.exports = function(app) {
 
             getApartments(res);
         });
+    });
 
+    app.put('/api/apartments', function(req, res) {
+        Apartment.findByIdAndUpdate(req.body._id,
+            {
+                $set: {
+                    name : req.body.name,
+                    address: req.body.address,
+                    energyInfo: req.body.energyInfo,
+                    internetInfo: req.body.internetInfo,
+                    rentAmount: req.body.rentAmount,
+                    condominium: req.body.condominium,
+                    mainBedrooms: req.body.mainBedrooms,
+                    contractStartDate: req.body.contractStartDate,
+                    allowedToReturnAfter: req.body.allowedToReturnAfter,
+                    observations: req.body.observations
+                }
+            },
+            {
+                safe: true,
+                upsert: true
+            },
+           function(err, apartment) {
+                if (err) {
+                    res.send(err);
+                }
+
+                res.json(apartment);
+            }
+        );
     });
 };
 

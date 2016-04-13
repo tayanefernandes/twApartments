@@ -1,15 +1,22 @@
-angular.module('twApartments').controller('ApartmentController', function($scope, $http, $rootScope, Apartment) {
+angular.module('twApartments').controller('ApartmentEditController', function($scope, $http, $rootScope, $routeParams, Apartment) {
         $rootScope.isAdmin = true;
     	$rootScope.loading = true;
+        $scope.isEditing = $routeParams.apartmentId !== undefined;
         $scope.apartment = {};
 
-
-        Apartment.get()
-            .success(function(data) {
-                $scope.apartments = data;
+        if($scope.isEditing) {
+            Apartment.getApartmentById($routeParams.apartmentId)
+            .success(function(data){
+                $scope.apartment = data;
+                $scope.apartment.contractStartDate = new Date(data.contractStartDate);
+                if(data.allowedToReturnAfter !== null) {
+                     $scope.apartment.allowedToReturnAfter = new Date(data.allowedToReturnAfter);
+                }
                 $rootScope.loading = false;
             });
-
+        } else {
+            $rootScope.loading = false;
+        }
 
         var createApartment = function() {
             $rootScope.loading = true;
@@ -25,15 +32,30 @@ angular.module('twApartments').controller('ApartmentController', function($scope
                 });
         };
 
+        var editApartment = function() {
+            $rootScope.loading = true;
+
+            Apartment.update($scope.apartment)
+                .success(function(data) {
+                    $rootScope.loading = false;
+                    // showDialogSuccess();
+                }).error(function(){
+                    // showDialogError();
+                });
+        };
+
         $scope.submitForm = function() {
-            console.log('Entrou aqui');
             $scope.submitted = true;
 
             if($scope.apartmentForm.$invalid) {
                 return false;
             }
+            if($scope.isEditing) {
+                editApartment();
+            } else {
+                createApartment();
+            }
 
-            createApartment();
             $scope.submitted = false;
         };
 
@@ -55,20 +77,6 @@ angular.module('twApartments').controller('ApartmentController', function($scope
                 className: 'ngdialog-theme-default',
                 showClose: false
             });
-        };
-
-        // delete a apartment after checking it
-        $scope.deleteApartment = function(id) {
-            var result = window.confirm('Are you sure you want to delete this apartment?');
-
-            if(result) {
-                $rootScope.loading = true;
-                 Apartment.delete(id)
-                    .success(function(data) {
-                        $scope.apartments = data;
-                        $rootScope.loading = false;
-                    });
-            }
         };
 
         $scope.hasError = function(field) {

@@ -1,5 +1,7 @@
 # twApartments
 
+[![Build Status](https://snap-ci.com/tayanefernandes/twApartments/branch/master/build_image)](https://snap-ci.com/tayanefernandes/twApartments/branch/master)
+
 App to manage corporate apartments
 
 You will need install:

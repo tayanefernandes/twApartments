@@ -27,8 +27,8 @@ angular.module('twApartments').controller('MaintenanceEditController',
     };
 
     $scope.closeError = function() {
-        $scope.showError = false; 
-    }; 
+        $scope.showError = false;
+    };
 
     $scope.hasError = function(field) {
         if (field !== undefined) {
@@ -61,7 +61,7 @@ angular.module('twApartments').controller('MaintenanceEditController',
         updateMaintenanceRequest($scope.maintenanceRequest);
     };
 
-    var updateMaintenanceRequest = function(formData) { 
+    var updateMaintenanceRequest = function(formData) {
         MaintenanceRequest.update(formData)
             .success(function(data){
                 showDialogSucess();
@@ -83,10 +83,12 @@ angular.module('twApartments').controller('MaintenanceEditController',
     };
 
     $scope.showDialogError = function() {
-       ngDialog.open({
+        $scope.modalMessage = '<h3>Error!</h3><p>Request not sent. Try again or contact office_admin_poa@thoughtworks.com</p>';
+        ngDialog.open({
                 template: '../views/errorTemplate.html',
                 className: 'ngdialog-theme-default',
-                showClose: false
+                showClose: false,
+                scope: $scope
             });
     };
 });

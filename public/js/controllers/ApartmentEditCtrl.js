@@ -1,4 +1,4 @@
-angular.module('twApartments').controller('ApartmentEditController', function($scope, $http, $rootScope, $routeParams, Apartment) {
+angular.module('twApartments').controller('ApartmentEditController', function($scope, $http, $rootScope, $routeParams, Apartment, ngDialog) {
         $rootScope.isAdmin = true;
     	$rootScope.loading = true;
         $scope.isEditing = $routeParams.apartmentId !== undefined;
@@ -26,9 +26,9 @@ angular.module('twApartments').controller('ApartmentEditController', function($s
                     $scope.apartment = {};
                     $scope.apartments = data;
                     $rootScope.loading = false;
-                    // showDialogSuccess();
+                    showDialogSuccess('<h3>Apartment created successfully!</h3>');
                 }).error(function(){
-                    // showDialogError();
+                    showDialogError('<h3>Error!</h3><p>Apartment not created. Try again!</p>');
                 });
         };
 
@@ -38,9 +38,9 @@ angular.module('twApartments').controller('ApartmentEditController', function($s
             Apartment.update($scope.apartment)
                 .success(function(data) {
                     $rootScope.loading = false;
-                    // showDialogSuccess();
+                    showDialogSuccess('<h3>Apartment edited successfully!</h3>');
                 }).error(function(){
-                    // showDialogError();
+                    showDialogError('<h3>Error!</h3><p>Apartment not edited. Try again!</p>');
                 });
         };
 
@@ -59,23 +59,25 @@ angular.module('twApartments').controller('ApartmentEditController', function($s
             $scope.submitted = false;
         };
 
-        var showDialogSuccess = function() {
-            $scope.modalMessage = '<h3>Apartment created successfully!</h3>';
+        var showDialogSuccess = function(message) {
+            $scope.modalMessage = message;
             ngDialog.open({
                 template: '../views/successTemplate.html',
                 className: 'ngdialog-theme-default',
                 showClose: false,
                 scope: $scope
             }).closePromise.then(function(data){
-                window.location.href = "/";
+                window.location.href = "/admin/apartments";
             });
         };
 
-        var showDialogError = function() {
-           ngDialog.open({
+        var showDialogError = function(message) {
+            $scope.modalMessage = message;
+            ngDialog.open({
                 template: '../views/errorTemplate.html',
                 className: 'ngdialog-theme-default',
-                showClose: false
+                showClose: false,
+                scope: $scope
             });
         };
 

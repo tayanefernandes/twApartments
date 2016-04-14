@@ -48,15 +48,15 @@
 			border-radius: 50%;
 			cursor:pointer;
 			color: $border-gray;
-			margin: 0 0.5em 0 2em; 
+			margin: 0 0.5em 0 2em;
 
 			&:hover {
 			    background: $gray;
 			}
-			  
+
 			&:checked {
 			    background: $blue;
-			} 
+			}
 
 			&:focus { outline: 0; }
 		}
@@ -65,7 +65,7 @@
 			position: relative;
 
 			input, textarea{
-				border: $light-red solid 2px;	
+				border: $light-red solid 2px;
 			}
 
 			&:after {
@@ -101,7 +101,7 @@
 			position: relative;
 
 			input {
-				border: $light-red solid 2px;	
+				border: $light-red solid 2px;
 			}
 
 			#false:after {
@@ -138,6 +138,7 @@
 		.fa-exclamation-circle {
 			float:left;
 			margin-right: 8px;
+			color: #EFAD2D;
 		}
 
 		label {

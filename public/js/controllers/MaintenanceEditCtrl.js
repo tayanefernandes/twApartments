@@ -79,7 +79,7 @@ angular.module('twApartments').controller('MaintenanceEditController',
                 scope: $scope
         }).closePromise.then(function(data){
             window.location.href = "/admin";
-        });;
+        });
     };
 
     $scope.showDialogError = function() {

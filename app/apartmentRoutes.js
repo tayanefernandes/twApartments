@@ -11,7 +11,7 @@ module.exports = function(app) {
 
             res.json(apartments);
         });
-    };
+    }
 
 
     app.get('/api/apartments', function(req, res) {

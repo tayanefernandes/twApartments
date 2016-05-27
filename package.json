@@ -11,7 +11,7 @@
     "sendgrid": "latest"
   },
   "scripts": {
-    "postinstall": "./node_modules/bower/bin/bower install && ./node_modules/node-sass/bin/node-sass public/sass/style.scss public/css/style.css",
+    "postinstall": "./node_modules/bower/bin/bower install && ./node_modules/node-sass/bin/node-sass public/sass/style.scss public/css/style.css && webpack -p",
     "watch": "node-sass --watch public/sass/style.scss public/css/style.css",
     "build": "webpack --display-error-details",
     "dev-build": "webpack-dev-server"

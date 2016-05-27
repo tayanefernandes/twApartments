@@ -106,12 +106,12 @@ module.exports = function(app) {
 
     var sendEmail = function(apartment, name, description, isUrgent) {
         var email = new sendgrid.Email();
-        email.addTo('tfernand@thoughtworks.com');
+        email.addTo('office-admin-poa@thoughtworks.com');
         email.setFrom('twapartments@gmail.com');
-        
+
         email.setSubject(isUrgent + ' Maintenance Request - Apartment ' + apartment.name);
         email.setHtml('<p> Requester: '+ name +'</p> <p> Message: '+ description + '</p>');
-         
+
         sendgrid.send(email);
     };
 
